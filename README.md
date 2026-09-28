@@ -12,12 +12,12 @@ Bare React Native (no Expo) · React Navigation · op-sqlite · Reanimated + Ges
 npm install
 npm run pods
 cp ios/Local.xcconfig.example ios/Local.xcconfig   # set DEVELOPMENT_TEAM
-npm run ios:device                                  # release build → connected iPhone
+npm run ios                                         # release build → connected iPhone
 ```
 
-Dev loop: `npm start` + `npm run ios`. Checks: `npm test`, `npm run typecheck`, `npm run lint`.
+Physical iPhone only, no Metro server. Checks: `npm test`, `npm run typecheck`, `npm run lint`.
 
-Backups: append-only change log (in every backup zip) + one daily copy on the phone (overwritten per change, 7 days) + one daily iCloud Drive copy. iCloud needs Xcode signed in to the team (Settings → Accounts) so the profile gets the iCloud capability; otherwise `npm run ios:device` builds without it.
+Backups: append-only change log (in every backup zip) + one daily copy on the phone (overwritten per change, 7 days) + one daily iCloud Drive copy. iCloud needs Xcode signed in to the team (Settings → Accounts) so the profile gets the iCloud capability; otherwise `npm run ios` builds without it.
 
 Screenshot a screen on the phone: `scripts/screenshot.sh tree/sample-house-of-windsor /tmp/out.png` (deep links: `familytree://trees|tree/<id>|person/<id>`).
 
