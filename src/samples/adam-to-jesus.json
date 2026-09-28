@@ -1,0 +1,1089 @@
+{
+  "id": "sample-adam-to-jesus",
+  "title": "Adam to Jesus",
+  "source": "Luke 3:23–38",
+  "persons": [
+    {
+      "id": "adam",
+      "name": "Adam",
+      "sex": "m",
+      "birthYear": -4004,
+      "deathYear": -3074,
+      "datesApprox": true,
+      "originRegion": "Eden",
+      "notes": "First man"
+    },
+    {
+      "id": "seth",
+      "name": "Seth",
+      "sex": "m",
+      "birthYear": -3874,
+      "deathYear": -2962,
+      "datesApprox": true,
+      "originRegion": "Antediluvian",
+      "notes": "Third son of Adam and Eve"
+    },
+    {
+      "id": "enos",
+      "name": "Enos",
+      "sex": "m",
+      "birthYear": -3769,
+      "deathYear": -2864,
+      "datesApprox": true,
+      "originRegion": "Antediluvian"
+    },
+    {
+      "id": "cainan",
+      "name": "Cainan",
+      "sex": "m",
+      "birthYear": -3679,
+      "deathYear": -2769,
+      "datesApprox": true,
+      "originRegion": "Antediluvian"
+    },
+    {
+      "id": "mahalaleel",
+      "name": "Mahalaleel",
+      "sex": "m",
+      "birthYear": -3609,
+      "deathYear": -2714,
+      "datesApprox": true,
+      "originRegion": "Antediluvian"
+    },
+    {
+      "id": "jared",
+      "name": "Jared",
+      "sex": "m",
+      "birthYear": -3544,
+      "deathYear": -2582,
+      "datesApprox": true,
+      "originRegion": "Antediluvian"
+    },
+    {
+      "id": "enoch",
+      "name": "Enoch",
+      "sex": "m",
+      "birthYear": -3382,
+      "deathYear": -3017,
+      "datesApprox": true,
+      "originRegion": "Antediluvian",
+      "notes": "Walked with God and was taken"
+    },
+    {
+      "id": "methuselah",
+      "name": "Methuselah",
+      "sex": "m",
+      "birthYear": -3317,
+      "deathYear": -2348,
+      "datesApprox": true,
+      "originRegion": "Antediluvian",
+      "notes": "Longest-lived man in the Bible"
+    },
+    {
+      "id": "lamech",
+      "name": "Lamech",
+      "sex": "m",
+      "birthYear": -3130,
+      "deathYear": -2353,
+      "datesApprox": true,
+      "originRegion": "Antediluvian"
+    },
+    {
+      "id": "noah",
+      "name": "Noah",
+      "sex": "m",
+      "birthYear": -2948,
+      "deathYear": -1998,
+      "datesApprox": true,
+      "originRegion": "Antediluvian",
+      "notes": "Built the ark"
+    },
+    {
+      "id": "shem",
+      "name": "Shem",
+      "sex": "m",
+      "birthYear": -2446,
+      "deathYear": -1846,
+      "datesApprox": true,
+      "originRegion": "Antediluvian",
+      "notes": "Son of Noah"
+    },
+    {
+      "id": "arphaxad",
+      "name": "Arphaxad",
+      "sex": "m",
+      "birthYear": -2346,
+      "deathYear": -1908,
+      "datesApprox": true,
+      "originRegion": "Mesopotamia (Ur)"
+    },
+    {
+      "id": "cainan-13",
+      "name": "Cainan",
+      "sex": "m",
+      "originRegion": "Mesopotamia (Ur)",
+      "notes": "Appears in Luke and the Septuagint, not in the Hebrew text"
+    },
+    {
+      "id": "shelah",
+      "name": "Shelah",
+      "sex": "m",
+      "birthYear": -2311,
+      "deathYear": -1878,
+      "datesApprox": true,
+      "originRegion": "Mesopotamia (Ur)"
+    },
+    {
+      "id": "eber",
+      "name": "Eber",
+      "sex": "m",
+      "birthYear": -2281,
+      "deathYear": -1817,
+      "datesApprox": true,
+      "originRegion": "Mesopotamia (Ur)"
+    },
+    {
+      "id": "peleg",
+      "name": "Peleg",
+      "sex": "m",
+      "birthYear": -2247,
+      "deathYear": -2008,
+      "datesApprox": true,
+      "originRegion": "Mesopotamia (Ur)"
+    },
+    {
+      "id": "reu",
+      "name": "Reu",
+      "sex": "m",
+      "birthYear": -2217,
+      "deathYear": -1978,
+      "datesApprox": true,
+      "originRegion": "Mesopotamia (Ur)"
+    },
+    {
+      "id": "serug",
+      "name": "Serug",
+      "sex": "m",
+      "birthYear": -2185,
+      "deathYear": -1955,
+      "datesApprox": true,
+      "originRegion": "Mesopotamia (Ur)"
+    },
+    {
+      "id": "nahor",
+      "name": "Nahor",
+      "sex": "m",
+      "birthYear": -2155,
+      "deathYear": -2007,
+      "datesApprox": true,
+      "originRegion": "Mesopotamia (Ur)"
+    },
+    {
+      "id": "terah",
+      "name": "Terah",
+      "sex": "m",
+      "birthYear": -2126,
+      "deathYear": -1921,
+      "datesApprox": true,
+      "originRegion": "Mesopotamia (Ur)"
+    },
+    {
+      "id": "abraham",
+      "name": "Abraham",
+      "sex": "m",
+      "birthYear": -1996,
+      "deathYear": -1821,
+      "datesApprox": true,
+      "originRegion": "Mesopotamia (Ur)",
+      "notes": "Patriarch; left Ur for Canaan"
+    },
+    {
+      "id": "isaac",
+      "name": "Isaac",
+      "sex": "m",
+      "birthYear": -1896,
+      "deathYear": -1716,
+      "datesApprox": true,
+      "originRegion": "Canaan",
+      "notes": "Son of the promise"
+    },
+    {
+      "id": "jacob",
+      "name": "Jacob",
+      "sex": "m",
+      "birthYear": -1836,
+      "deathYear": -1689,
+      "datesApprox": true,
+      "originRegion": "Canaan",
+      "notes": "Renamed Israel; father of the twelve tribes"
+    },
+    {
+      "id": "judah",
+      "name": "Judah",
+      "sex": "m",
+      "originRegion": "Mesopotamia (Haran)",
+      "notes": "Son of Jacob; ancestor of the tribe of Judah"
+    },
+    {
+      "id": "perez",
+      "name": "Perez",
+      "sex": "m",
+      "originRegion": "Canaan"
+    },
+    {
+      "id": "hezron",
+      "name": "Hezron",
+      "sex": "m",
+      "originRegion": "Canaan"
+    },
+    {
+      "id": "arni",
+      "name": "Arni",
+      "sex": "m",
+      "originRegion": "Egypt"
+    },
+    {
+      "id": "admin",
+      "name": "Admin",
+      "sex": "m",
+      "originRegion": "Egypt"
+    },
+    {
+      "id": "amminadab",
+      "name": "Amminadab",
+      "sex": "m",
+      "originRegion": "Egypt"
+    },
+    {
+      "id": "nahshon",
+      "name": "Nahshon",
+      "sex": "m",
+      "originRegion": "Egypt",
+      "notes": "Leader of the tribe of Judah in the wilderness"
+    },
+    {
+      "id": "sala",
+      "name": "Sala",
+      "sex": "m",
+      "originRegion": "Canaan",
+      "notes": "Salmon"
+    },
+    {
+      "id": "boaz",
+      "name": "Boaz",
+      "sex": "m",
+      "originRegion": "Judah",
+      "notes": "Of Bethlehem, husband of Ruth"
+    },
+    {
+      "id": "obed",
+      "name": "Obed",
+      "sex": "m",
+      "originRegion": "Judah"
+    },
+    {
+      "id": "jesse",
+      "name": "Jesse",
+      "sex": "m",
+      "originRegion": "Judah",
+      "notes": "Of Bethlehem"
+    },
+    {
+      "id": "david",
+      "name": "David",
+      "sex": "m",
+      "birthYear": -1040,
+      "deathYear": -970,
+      "datesApprox": true,
+      "originRegion": "Judah",
+      "notes": "King of Israel"
+    },
+    {
+      "id": "nathan",
+      "name": "Nathan",
+      "sex": "m",
+      "originRegion": "Judah",
+      "notes": "Son of David and Bathsheba"
+    },
+    {
+      "id": "mattatha",
+      "name": "Mattatha",
+      "sex": "m",
+      "originRegion": "Judah"
+    },
+    {
+      "id": "menna",
+      "name": "Menna",
+      "sex": "m",
+      "originRegion": "Judah"
+    },
+    {
+      "id": "melea",
+      "name": "Melea",
+      "sex": "m",
+      "originRegion": "Judah"
+    },
+    {
+      "id": "eliakim",
+      "name": "Eliakim",
+      "sex": "m",
+      "originRegion": "Judah"
+    },
+    {
+      "id": "jonam",
+      "name": "Jonam",
+      "sex": "m",
+      "originRegion": "Judah"
+    },
+    {
+      "id": "joseph",
+      "name": "Joseph",
+      "sex": "m",
+      "originRegion": "Judah"
+    },
+    {
+      "id": "judah-43",
+      "name": "Judah",
+      "sex": "m",
+      "originRegion": "Judah"
+    },
+    {
+      "id": "simeon",
+      "name": "Simeon",
+      "sex": "m",
+      "originRegion": "Judah"
+    },
+    {
+      "id": "levi",
+      "name": "Levi",
+      "sex": "m",
+      "originRegion": "Judah"
+    },
+    {
+      "id": "matthat",
+      "name": "Matthat",
+      "sex": "m",
+      "originRegion": "Judah"
+    },
+    {
+      "id": "jorim",
+      "name": "Jorim",
+      "sex": "m",
+      "originRegion": "Judah"
+    },
+    {
+      "id": "eliezer",
+      "name": "Eliezer",
+      "sex": "m",
+      "originRegion": "Judah"
+    },
+    {
+      "id": "joshua",
+      "name": "Joshua",
+      "sex": "m",
+      "originRegion": "Judah"
+    },
+    {
+      "id": "er",
+      "name": "Er",
+      "sex": "m",
+      "originRegion": "Judah"
+    },
+    {
+      "id": "elmadam",
+      "name": "Elmadam",
+      "sex": "m",
+      "originRegion": "Judah"
+    },
+    {
+      "id": "cosam",
+      "name": "Cosam",
+      "sex": "m",
+      "originRegion": "Judah"
+    },
+    {
+      "id": "addi",
+      "name": "Addi",
+      "sex": "m",
+      "originRegion": "Judah"
+    },
+    {
+      "id": "melchi",
+      "name": "Melchi",
+      "sex": "m",
+      "originRegion": "Judah"
+    },
+    {
+      "id": "neri",
+      "name": "Neri",
+      "sex": "m",
+      "originRegion": "Judah"
+    },
+    {
+      "id": "shealtiel",
+      "name": "Shealtiel",
+      "sex": "m",
+      "originRegion": "Babylon (exile)"
+    },
+    {
+      "id": "zerubbabel",
+      "name": "Zerubbabel",
+      "sex": "m",
+      "originRegion": "Babylon (exile)",
+      "notes": "Led the return from exile; rebuilt the Temple"
+    },
+    {
+      "id": "rhesa",
+      "name": "Rhesa",
+      "sex": "m",
+      "originRegion": "Judah"
+    },
+    {
+      "id": "joanan",
+      "name": "Joanan",
+      "sex": "m",
+      "originRegion": "Judah"
+    },
+    {
+      "id": "joda",
+      "name": "Joda",
+      "sex": "m",
+      "originRegion": "Judah"
+    },
+    {
+      "id": "josech",
+      "name": "Josech",
+      "sex": "m",
+      "originRegion": "Judah"
+    },
+    {
+      "id": "semein",
+      "name": "Semein",
+      "sex": "m",
+      "originRegion": "Judah"
+    },
+    {
+      "id": "mattathias",
+      "name": "Mattathias",
+      "sex": "m",
+      "originRegion": "Judah"
+    },
+    {
+      "id": "maath",
+      "name": "Maath",
+      "sex": "m",
+      "originRegion": "Judah"
+    },
+    {
+      "id": "naggai",
+      "name": "Naggai",
+      "sex": "m",
+      "originRegion": "Judah"
+    },
+    {
+      "id": "esli",
+      "name": "Esli",
+      "sex": "m",
+      "originRegion": "Judah"
+    },
+    {
+      "id": "nahum",
+      "name": "Nahum",
+      "sex": "m",
+      "originRegion": "Judah"
+    },
+    {
+      "id": "amos",
+      "name": "Amos",
+      "sex": "m",
+      "originRegion": "Judah"
+    },
+    {
+      "id": "mattathias-69",
+      "name": "Mattathias",
+      "sex": "m",
+      "originRegion": "Judah"
+    },
+    {
+      "id": "joseph-70",
+      "name": "Joseph",
+      "sex": "m",
+      "originRegion": "Judah"
+    },
+    {
+      "id": "jannai",
+      "name": "Jannai",
+      "sex": "m",
+      "originRegion": "Judah"
+    },
+    {
+      "id": "melchi-72",
+      "name": "Melchi",
+      "sex": "m",
+      "originRegion": "Judah"
+    },
+    {
+      "id": "levi-73",
+      "name": "Levi",
+      "sex": "m",
+      "originRegion": "Judah"
+    },
+    {
+      "id": "matthat-74",
+      "name": "Matthat",
+      "sex": "m",
+      "originRegion": "Judah"
+    },
+    {
+      "id": "heli",
+      "name": "Heli",
+      "sex": "m",
+      "originRegion": "Galilee"
+    },
+    {
+      "id": "joseph-76",
+      "name": "Joseph",
+      "sex": "m",
+      "originRegion": "Galilee",
+      "notes": "Carpenter of Nazareth, husband of Mary"
+    },
+    {
+      "id": "jesus",
+      "name": "Jesus",
+      "sex": "m",
+      "birthYear": -4,
+      "deathYear": 30,
+      "datesApprox": true,
+      "originRegion": "Galilee",
+      "notes": "Born in Bethlehem, raised in Nazareth; central figure of Christianity"
+    },
+    {
+      "id": "eve",
+      "name": "Eve",
+      "sex": "f",
+      "originRegion": "Eden",
+      "notes": "First woman"
+    },
+    {
+      "id": "sarah",
+      "name": "Sarah",
+      "sex": "f",
+      "originRegion": "Mesopotamia (Ur)",
+      "notes": "Wife of Abraham"
+    },
+    {
+      "id": "rebekah",
+      "name": "Rebekah",
+      "sex": "f",
+      "originRegion": "Mesopotamia (Haran)",
+      "notes": "Wife of Isaac"
+    },
+    {
+      "id": "leah",
+      "name": "Leah",
+      "sex": "f",
+      "originRegion": "Mesopotamia (Haran)"
+    },
+    {
+      "id": "tamar",
+      "name": "Tamar",
+      "sex": "f",
+      "originRegion": "Canaan"
+    },
+    {
+      "id": "rahab",
+      "name": "Rahab",
+      "sex": "f",
+      "originRegion": "Canaan",
+      "notes": "Of Jericho (Matthew 1:5)"
+    },
+    {
+      "id": "ruth",
+      "name": "Ruth",
+      "sex": "f",
+      "originRegion": "Moab",
+      "notes": "Moabite; great-grandmother of David"
+    },
+    {
+      "id": "bathsheba",
+      "name": "Bathsheba",
+      "sex": "f",
+      "originRegion": "Judah",
+      "notes": "Wife of David"
+    },
+    {
+      "id": "mary",
+      "name": "Mary",
+      "sex": "f",
+      "originRegion": "Galilee",
+      "notes": "Mother of Jesus"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "parent",
+      "from": "adam",
+      "to": "seth"
+    },
+    {
+      "type": "parent",
+      "from": "seth",
+      "to": "enos"
+    },
+    {
+      "type": "parent",
+      "from": "enos",
+      "to": "cainan"
+    },
+    {
+      "type": "parent",
+      "from": "cainan",
+      "to": "mahalaleel"
+    },
+    {
+      "type": "parent",
+      "from": "mahalaleel",
+      "to": "jared"
+    },
+    {
+      "type": "parent",
+      "from": "jared",
+      "to": "enoch"
+    },
+    {
+      "type": "parent",
+      "from": "enoch",
+      "to": "methuselah"
+    },
+    {
+      "type": "parent",
+      "from": "methuselah",
+      "to": "lamech"
+    },
+    {
+      "type": "parent",
+      "from": "lamech",
+      "to": "noah"
+    },
+    {
+      "type": "parent",
+      "from": "noah",
+      "to": "shem"
+    },
+    {
+      "type": "parent",
+      "from": "shem",
+      "to": "arphaxad"
+    },
+    {
+      "type": "parent",
+      "from": "arphaxad",
+      "to": "cainan-13"
+    },
+    {
+      "type": "parent",
+      "from": "cainan-13",
+      "to": "shelah"
+    },
+    {
+      "type": "parent",
+      "from": "shelah",
+      "to": "eber"
+    },
+    {
+      "type": "parent",
+      "from": "eber",
+      "to": "peleg"
+    },
+    {
+      "type": "parent",
+      "from": "peleg",
+      "to": "reu"
+    },
+    {
+      "type": "parent",
+      "from": "reu",
+      "to": "serug"
+    },
+    {
+      "type": "parent",
+      "from": "serug",
+      "to": "nahor"
+    },
+    {
+      "type": "parent",
+      "from": "nahor",
+      "to": "terah"
+    },
+    {
+      "type": "parent",
+      "from": "terah",
+      "to": "abraham"
+    },
+    {
+      "type": "parent",
+      "from": "abraham",
+      "to": "isaac"
+    },
+    {
+      "type": "parent",
+      "from": "isaac",
+      "to": "jacob"
+    },
+    {
+      "type": "parent",
+      "from": "jacob",
+      "to": "judah"
+    },
+    {
+      "type": "parent",
+      "from": "judah",
+      "to": "perez"
+    },
+    {
+      "type": "parent",
+      "from": "perez",
+      "to": "hezron"
+    },
+    {
+      "type": "parent",
+      "from": "hezron",
+      "to": "arni"
+    },
+    {
+      "type": "parent",
+      "from": "arni",
+      "to": "admin"
+    },
+    {
+      "type": "parent",
+      "from": "admin",
+      "to": "amminadab"
+    },
+    {
+      "type": "parent",
+      "from": "amminadab",
+      "to": "nahshon"
+    },
+    {
+      "type": "parent",
+      "from": "nahshon",
+      "to": "sala"
+    },
+    {
+      "type": "parent",
+      "from": "sala",
+      "to": "boaz"
+    },
+    {
+      "type": "parent",
+      "from": "boaz",
+      "to": "obed"
+    },
+    {
+      "type": "parent",
+      "from": "obed",
+      "to": "jesse"
+    },
+    {
+      "type": "parent",
+      "from": "jesse",
+      "to": "david"
+    },
+    {
+      "type": "parent",
+      "from": "david",
+      "to": "nathan"
+    },
+    {
+      "type": "parent",
+      "from": "nathan",
+      "to": "mattatha"
+    },
+    {
+      "type": "parent",
+      "from": "mattatha",
+      "to": "menna"
+    },
+    {
+      "type": "parent",
+      "from": "menna",
+      "to": "melea"
+    },
+    {
+      "type": "parent",
+      "from": "melea",
+      "to": "eliakim"
+    },
+    {
+      "type": "parent",
+      "from": "eliakim",
+      "to": "jonam"
+    },
+    {
+      "type": "parent",
+      "from": "jonam",
+      "to": "joseph"
+    },
+    {
+      "type": "parent",
+      "from": "joseph",
+      "to": "judah-43"
+    },
+    {
+      "type": "parent",
+      "from": "judah-43",
+      "to": "simeon"
+    },
+    {
+      "type": "parent",
+      "from": "simeon",
+      "to": "levi"
+    },
+    {
+      "type": "parent",
+      "from": "levi",
+      "to": "matthat"
+    },
+    {
+      "type": "parent",
+      "from": "matthat",
+      "to": "jorim"
+    },
+    {
+      "type": "parent",
+      "from": "jorim",
+      "to": "eliezer"
+    },
+    {
+      "type": "parent",
+      "from": "eliezer",
+      "to": "joshua"
+    },
+    {
+      "type": "parent",
+      "from": "joshua",
+      "to": "er"
+    },
+    {
+      "type": "parent",
+      "from": "er",
+      "to": "elmadam"
+    },
+    {
+      "type": "parent",
+      "from": "elmadam",
+      "to": "cosam"
+    },
+    {
+      "type": "parent",
+      "from": "cosam",
+      "to": "addi"
+    },
+    {
+      "type": "parent",
+      "from": "addi",
+      "to": "melchi"
+    },
+    {
+      "type": "parent",
+      "from": "melchi",
+      "to": "neri"
+    },
+    {
+      "type": "parent",
+      "from": "neri",
+      "to": "shealtiel"
+    },
+    {
+      "type": "parent",
+      "from": "shealtiel",
+      "to": "zerubbabel"
+    },
+    {
+      "type": "parent",
+      "from": "zerubbabel",
+      "to": "rhesa"
+    },
+    {
+      "type": "parent",
+      "from": "rhesa",
+      "to": "joanan"
+    },
+    {
+      "type": "parent",
+      "from": "joanan",
+      "to": "joda"
+    },
+    {
+      "type": "parent",
+      "from": "joda",
+      "to": "josech"
+    },
+    {
+      "type": "parent",
+      "from": "josech",
+      "to": "semein"
+    },
+    {
+      "type": "parent",
+      "from": "semein",
+      "to": "mattathias"
+    },
+    {
+      "type": "parent",
+      "from": "mattathias",
+      "to": "maath"
+    },
+    {
+      "type": "parent",
+      "from": "maath",
+      "to": "naggai"
+    },
+    {
+      "type": "parent",
+      "from": "naggai",
+      "to": "esli"
+    },
+    {
+      "type": "parent",
+      "from": "esli",
+      "to": "nahum"
+    },
+    {
+      "type": "parent",
+      "from": "nahum",
+      "to": "amos"
+    },
+    {
+      "type": "parent",
+      "from": "amos",
+      "to": "mattathias-69"
+    },
+    {
+      "type": "parent",
+      "from": "mattathias-69",
+      "to": "joseph-70"
+    },
+    {
+      "type": "parent",
+      "from": "joseph-70",
+      "to": "jannai"
+    },
+    {
+      "type": "parent",
+      "from": "jannai",
+      "to": "melchi-72"
+    },
+    {
+      "type": "parent",
+      "from": "melchi-72",
+      "to": "levi-73"
+    },
+    {
+      "type": "parent",
+      "from": "levi-73",
+      "to": "matthat-74"
+    },
+    {
+      "type": "parent",
+      "from": "matthat-74",
+      "to": "heli"
+    },
+    {
+      "type": "parent",
+      "from": "heli",
+      "to": "joseph-76"
+    },
+    {
+      "type": "parent",
+      "from": "joseph-76",
+      "to": "jesus"
+    },
+    {
+      "type": "spouse",
+      "from": "adam",
+      "to": "eve"
+    },
+    {
+      "type": "parent",
+      "from": "eve",
+      "to": "seth"
+    },
+    {
+      "type": "spouse",
+      "from": "abraham",
+      "to": "sarah"
+    },
+    {
+      "type": "parent",
+      "from": "sarah",
+      "to": "isaac"
+    },
+    {
+      "type": "spouse",
+      "from": "isaac",
+      "to": "rebekah"
+    },
+    {
+      "type": "parent",
+      "from": "rebekah",
+      "to": "jacob"
+    },
+    {
+      "type": "spouse",
+      "from": "jacob",
+      "to": "leah"
+    },
+    {
+      "type": "parent",
+      "from": "leah",
+      "to": "judah"
+    },
+    {
+      "type": "parent",
+      "from": "tamar",
+      "to": "perez"
+    },
+    {
+      "type": "spouse",
+      "from": "sala",
+      "to": "rahab"
+    },
+    {
+      "type": "parent",
+      "from": "rahab",
+      "to": "boaz"
+    },
+    {
+      "type": "spouse",
+      "from": "boaz",
+      "to": "ruth"
+    },
+    {
+      "type": "parent",
+      "from": "ruth",
+      "to": "obed"
+    },
+    {
+      "type": "spouse",
+      "from": "david",
+      "to": "bathsheba"
+    },
+    {
+      "type": "parent",
+      "from": "bathsheba",
+      "to": "nathan"
+    },
+    {
+      "type": "spouse",
+      "from": "joseph-76",
+      "to": "mary"
+    },
+    {
+      "type": "parent",
+      "from": "mary",
+      "to": "jesus"
+    }
+  ]
+}

@@ -1,0 +1,1045 @@
+{
+  "id": "sample-house-of-windsor",
+  "title": "House of Windsor",
+  "source": "Public royal genealogies (Victoria to present)",
+  "persons": [
+    {
+      "id": "victoria",
+      "name": "Queen Victoria",
+      "sex": "f",
+      "birthYear": 1819,
+      "deathYear": 1901,
+      "originRegion": "England",
+      "notes": "Queen 1837–1901"
+    },
+    {
+      "id": "albert",
+      "name": "Prince Albert",
+      "sex": "m",
+      "birthYear": 1819,
+      "deathYear": 1861,
+      "originRegion": "Germany (Coburg)",
+      "notes": "Prince Consort"
+    },
+    {
+      "id": "vicky",
+      "name": "Victoria, Princess Royal",
+      "sex": "f",
+      "birthYear": 1840,
+      "deathYear": 1901,
+      "originRegion": "England",
+      "notes": "German Empress"
+    },
+    {
+      "id": "edward-vii",
+      "name": "Edward VII",
+      "sex": "m",
+      "birthYear": 1841,
+      "deathYear": 1910,
+      "originRegion": "England",
+      "notes": "King 1901–1910"
+    },
+    {
+      "id": "alice",
+      "name": "Princess Alice",
+      "sex": "f",
+      "birthYear": 1843,
+      "deathYear": 1878,
+      "originRegion": "England",
+      "notes": "Grand Duchess of Hesse"
+    },
+    {
+      "id": "alfred",
+      "name": "Prince Alfred",
+      "sex": "m",
+      "birthYear": 1844,
+      "deathYear": 1900,
+      "originRegion": "England",
+      "notes": "Duke of Saxe-Coburg and Gotha"
+    },
+    {
+      "id": "helena",
+      "name": "Princess Helena",
+      "sex": "f",
+      "birthYear": 1846,
+      "deathYear": 1923,
+      "originRegion": "England"
+    },
+    {
+      "id": "louise",
+      "name": "Princess Louise",
+      "sex": "f",
+      "birthYear": 1848,
+      "deathYear": 1939,
+      "originRegion": "England",
+      "notes": "Duchess of Argyll; sculptor"
+    },
+    {
+      "id": "arthur",
+      "name": "Prince Arthur",
+      "sex": "m",
+      "birthYear": 1850,
+      "deathYear": 1942,
+      "originRegion": "England",
+      "notes": "Duke of Connaught; Governor General of Canada"
+    },
+    {
+      "id": "leopold",
+      "name": "Prince Leopold",
+      "sex": "m",
+      "birthYear": 1853,
+      "deathYear": 1884,
+      "originRegion": "England",
+      "notes": "Duke of Albany; haemophiliac"
+    },
+    {
+      "id": "beatrice-1857",
+      "name": "Princess Beatrice",
+      "sex": "f",
+      "birthYear": 1857,
+      "deathYear": 1944,
+      "originRegion": "England",
+      "notes": "Youngest child of Victoria"
+    },
+    {
+      "id": "frederick-iii",
+      "name": "Frederick III",
+      "sex": "m",
+      "birthYear": 1831,
+      "deathYear": 1888,
+      "originRegion": "Germany (Prussia)",
+      "notes": "German Emperor"
+    },
+    {
+      "id": "wilhelm-ii",
+      "name": "Wilhelm II",
+      "sex": "m",
+      "birthYear": 1859,
+      "deathYear": 1941,
+      "originRegion": "Germany (Prussia)",
+      "notes": "Last German Emperor"
+    },
+    {
+      "id": "alexandra",
+      "name": "Alexandra of Denmark",
+      "sex": "f",
+      "birthYear": 1844,
+      "deathYear": 1925,
+      "originRegion": "Denmark",
+      "notes": "Queen consort"
+    },
+    {
+      "id": "louis-iv",
+      "name": "Louis IV, Grand Duke of Hesse",
+      "sex": "m",
+      "birthYear": 1837,
+      "deathYear": 1892,
+      "originRegion": "Germany (Hesse)"
+    },
+    {
+      "id": "christian-sh",
+      "name": "Prince Christian of Schleswig-Holstein",
+      "sex": "m",
+      "birthYear": 1831,
+      "deathYear": 1917,
+      "originRegion": "Denmark"
+    },
+    {
+      "id": "lorne",
+      "name": "John Campbell, 9th Duke of Argyll",
+      "sex": "m",
+      "birthYear": 1845,
+      "deathYear": 1914,
+      "originRegion": "England",
+      "notes": "Governor General of Canada"
+    },
+    {
+      "id": "henry-battenberg",
+      "name": "Prince Henry of Battenberg",
+      "sex": "m",
+      "birthYear": 1858,
+      "deathYear": 1896,
+      "originRegion": "Italy"
+    },
+    {
+      "id": "victoria-hesse",
+      "name": "Princess Victoria of Hesse",
+      "sex": "f",
+      "birthYear": 1863,
+      "deathYear": 1950,
+      "originRegion": "England",
+      "notes": "Grandmother of Prince Philip"
+    },
+    {
+      "id": "alix",
+      "name": "Alix of Hesse (Alexandra Feodorovna)",
+      "sex": "f",
+      "birthYear": 1872,
+      "deathYear": 1918,
+      "originRegion": "Germany (Hesse)",
+      "notes": "Last Empress of Russia"
+    },
+    {
+      "id": "nicholas-ii",
+      "name": "Nicholas II of Russia",
+      "sex": "m",
+      "birthYear": 1868,
+      "deathYear": 1918,
+      "originRegion": "Russia",
+      "notes": "Last Tsar"
+    },
+    {
+      "id": "louis-battenberg",
+      "name": "Prince Louis of Battenberg",
+      "sex": "m",
+      "birthYear": 1854,
+      "deathYear": 1921,
+      "originRegion": "Austria",
+      "notes": "1st Marquess of Milford Haven; First Sea Lord"
+    },
+    {
+      "id": "alice-battenberg",
+      "name": "Princess Alice of Battenberg",
+      "sex": "f",
+      "birthYear": 1885,
+      "deathYear": 1969,
+      "originRegion": "England",
+      "notes": "Mother of Prince Philip"
+    },
+    {
+      "id": "mountbatten",
+      "name": "Louis Mountbatten",
+      "sex": "m",
+      "birthYear": 1900,
+      "deathYear": 1979,
+      "originRegion": "England",
+      "notes": "Last Viceroy of India"
+    },
+    {
+      "id": "andrew-greece",
+      "name": "Prince Andrew of Greece and Denmark",
+      "sex": "m",
+      "birthYear": 1882,
+      "deathYear": 1944,
+      "originRegion": "Greece"
+    },
+    {
+      "id": "philip",
+      "name": "Prince Philip, Duke of Edinburgh",
+      "sex": "m",
+      "birthYear": 1921,
+      "deathYear": 2021,
+      "originRegion": "Greece",
+      "notes": "Great-great-grandson of Victoria; consort of Elizabeth II"
+    },
+    {
+      "id": "albert-victor",
+      "name": "Prince Albert Victor",
+      "sex": "m",
+      "birthYear": 1864,
+      "deathYear": 1892,
+      "originRegion": "England",
+      "notes": "Duke of Clarence; died before succeeding"
+    },
+    {
+      "id": "george-v",
+      "name": "George V",
+      "sex": "m",
+      "birthYear": 1865,
+      "deathYear": 1936,
+      "originRegion": "England",
+      "notes": "King 1910–1936; founded House of Windsor 1917"
+    },
+    {
+      "id": "mary-teck",
+      "name": "Mary of Teck",
+      "sex": "f",
+      "birthYear": 1867,
+      "deathYear": 1953,
+      "originRegion": "England",
+      "notes": "Queen consort"
+    },
+    {
+      "id": "edward-viii",
+      "name": "Edward VIII",
+      "sex": "m",
+      "birthYear": 1894,
+      "deathYear": 1972,
+      "originRegion": "England",
+      "notes": "Abdicated 1936"
+    },
+    {
+      "id": "george-vi",
+      "name": "George VI",
+      "sex": "m",
+      "birthYear": 1895,
+      "deathYear": 1952,
+      "originRegion": "England",
+      "notes": "King 1936–1952"
+    },
+    {
+      "id": "mary-princess-royal",
+      "name": "Mary, Princess Royal",
+      "sex": "f",
+      "birthYear": 1897,
+      "deathYear": 1965,
+      "originRegion": "England"
+    },
+    {
+      "id": "george-kent",
+      "name": "Prince George, Duke of Kent",
+      "sex": "m",
+      "birthYear": 1902,
+      "deathYear": 1942,
+      "originRegion": "England"
+    },
+    {
+      "id": "wallis",
+      "name": "Wallis Simpson",
+      "sex": "f",
+      "birthYear": 1896,
+      "deathYear": 1986,
+      "originRegion": "United States",
+      "notes": "Duchess of Windsor"
+    },
+    {
+      "id": "queen-mother",
+      "name": "Elizabeth Bowes-Lyon",
+      "sex": "f",
+      "birthYear": 1900,
+      "deathYear": 2002,
+      "originRegion": "England",
+      "notes": "Queen consort; the Queen Mother"
+    },
+    {
+      "id": "elizabeth-ii",
+      "name": "Elizabeth II",
+      "sex": "f",
+      "birthYear": 1926,
+      "deathYear": 2022,
+      "originRegion": "England",
+      "notes": "Queen 1952–2022"
+    },
+    {
+      "id": "margaret",
+      "name": "Princess Margaret",
+      "sex": "f",
+      "birthYear": 1930,
+      "deathYear": 2002,
+      "originRegion": "Scotland",
+      "notes": "Countess of Snowdon"
+    },
+    {
+      "id": "snowdon",
+      "name": "Antony Armstrong-Jones, Lord Snowdon",
+      "sex": "m",
+      "birthYear": 1930,
+      "deathYear": 2017,
+      "originRegion": "England",
+      "notes": "Photographer"
+    },
+    {
+      "id": "charles-iii",
+      "name": "Charles III",
+      "sex": "m",
+      "birthYear": 1948,
+      "originRegion": "England",
+      "notes": "King since 2022"
+    },
+    {
+      "id": "anne",
+      "name": "Anne, Princess Royal",
+      "sex": "f",
+      "birthYear": 1950,
+      "originRegion": "England"
+    },
+    {
+      "id": "andrew",
+      "name": "Andrew Mountbatten-Windsor",
+      "sex": "m",
+      "birthYear": 1960,
+      "originRegion": "England",
+      "notes": "Formerly Duke of York"
+    },
+    {
+      "id": "edward",
+      "name": "Prince Edward, Duke of Edinburgh",
+      "sex": "m",
+      "birthYear": 1964,
+      "originRegion": "England"
+    },
+    {
+      "id": "diana",
+      "name": "Diana, Princess of Wales",
+      "sex": "f",
+      "birthYear": 1961,
+      "deathYear": 1997,
+      "originRegion": "England",
+      "notes": "First wife of Charles"
+    },
+    {
+      "id": "camilla",
+      "name": "Queen Camilla",
+      "sex": "f",
+      "birthYear": 1947,
+      "originRegion": "England",
+      "notes": "Queen consort"
+    },
+    {
+      "id": "mark-phillips",
+      "name": "Mark Phillips",
+      "sex": "m",
+      "birthYear": 1948,
+      "originRegion": "England",
+      "notes": "Olympic equestrian; first husband of Anne"
+    },
+    {
+      "id": "timothy-laurence",
+      "name": "Sir Timothy Laurence",
+      "sex": "m",
+      "birthYear": 1955,
+      "originRegion": "England",
+      "notes": "Vice-admiral"
+    },
+    {
+      "id": "sarah-ferguson",
+      "name": "Sarah Ferguson",
+      "sex": "f",
+      "birthYear": 1959,
+      "originRegion": "England",
+      "notes": "Former wife of Andrew"
+    },
+    {
+      "id": "sophie",
+      "name": "Sophie, Duchess of Edinburgh",
+      "sex": "f",
+      "birthYear": 1965,
+      "originRegion": "England"
+    },
+    {
+      "id": "william",
+      "name": "William, Prince of Wales",
+      "sex": "m",
+      "birthYear": 1982,
+      "originRegion": "England",
+      "notes": "Heir apparent"
+    },
+    {
+      "id": "harry",
+      "name": "Prince Harry, Duke of Sussex",
+      "sex": "m",
+      "birthYear": 1984,
+      "originRegion": "England"
+    },
+    {
+      "id": "catherine",
+      "name": "Catherine, Princess of Wales",
+      "sex": "f",
+      "birthYear": 1982,
+      "originRegion": "England"
+    },
+    {
+      "id": "meghan",
+      "name": "Meghan, Duchess of Sussex",
+      "sex": "f",
+      "birthYear": 1981,
+      "originRegion": "United States",
+      "notes": "Actress"
+    },
+    {
+      "id": "peter-phillips",
+      "name": "Peter Phillips",
+      "sex": "m",
+      "birthYear": 1977,
+      "originRegion": "England"
+    },
+    {
+      "id": "zara",
+      "name": "Zara Tindall",
+      "sex": "f",
+      "birthYear": 1981,
+      "originRegion": "England",
+      "notes": "Olympic equestrian"
+    },
+    {
+      "id": "beatrice",
+      "name": "Princess Beatrice",
+      "sex": "f",
+      "birthYear": 1988,
+      "originRegion": "England"
+    },
+    {
+      "id": "eugenie",
+      "name": "Princess Eugenie",
+      "sex": "f",
+      "birthYear": 1990,
+      "originRegion": "England"
+    },
+    {
+      "id": "lady-louise",
+      "name": "Lady Louise Mountbatten-Windsor",
+      "sex": "f",
+      "birthYear": 2003,
+      "originRegion": "England"
+    },
+    {
+      "id": "james",
+      "name": "James, Earl of Wessex",
+      "sex": "m",
+      "birthYear": 2007,
+      "originRegion": "England"
+    },
+    {
+      "id": "prince-george",
+      "name": "Prince George of Wales",
+      "sex": "m",
+      "birthYear": 2013,
+      "originRegion": "England"
+    },
+    {
+      "id": "charlotte",
+      "name": "Princess Charlotte of Wales",
+      "sex": "f",
+      "birthYear": 2015,
+      "originRegion": "England"
+    },
+    {
+      "id": "prince-louis",
+      "name": "Prince Louis of Wales",
+      "sex": "m",
+      "birthYear": 2018,
+      "originRegion": "England"
+    },
+    {
+      "id": "archie",
+      "name": "Prince Archie of Sussex",
+      "sex": "m",
+      "birthYear": 2019,
+      "originRegion": "England"
+    },
+    {
+      "id": "lilibet",
+      "name": "Princess Lilibet of Sussex",
+      "sex": "f",
+      "birthYear": 2021,
+      "originRegion": "United States"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "spouse",
+      "from": "victoria",
+      "to": "albert"
+    },
+    {
+      "type": "parent",
+      "from": "victoria",
+      "to": "vicky"
+    },
+    {
+      "type": "parent",
+      "from": "albert",
+      "to": "vicky"
+    },
+    {
+      "type": "parent",
+      "from": "victoria",
+      "to": "edward-vii"
+    },
+    {
+      "type": "parent",
+      "from": "albert",
+      "to": "edward-vii"
+    },
+    {
+      "type": "parent",
+      "from": "victoria",
+      "to": "alice"
+    },
+    {
+      "type": "parent",
+      "from": "albert",
+      "to": "alice"
+    },
+    {
+      "type": "parent",
+      "from": "victoria",
+      "to": "alfred"
+    },
+    {
+      "type": "parent",
+      "from": "albert",
+      "to": "alfred"
+    },
+    {
+      "type": "parent",
+      "from": "victoria",
+      "to": "helena"
+    },
+    {
+      "type": "parent",
+      "from": "albert",
+      "to": "helena"
+    },
+    {
+      "type": "parent",
+      "from": "victoria",
+      "to": "louise"
+    },
+    {
+      "type": "parent",
+      "from": "albert",
+      "to": "louise"
+    },
+    {
+      "type": "parent",
+      "from": "victoria",
+      "to": "arthur"
+    },
+    {
+      "type": "parent",
+      "from": "albert",
+      "to": "arthur"
+    },
+    {
+      "type": "parent",
+      "from": "victoria",
+      "to": "leopold"
+    },
+    {
+      "type": "parent",
+      "from": "albert",
+      "to": "leopold"
+    },
+    {
+      "type": "parent",
+      "from": "victoria",
+      "to": "beatrice-1857"
+    },
+    {
+      "type": "parent",
+      "from": "albert",
+      "to": "beatrice-1857"
+    },
+    {
+      "type": "spouse",
+      "from": "vicky",
+      "to": "frederick-iii"
+    },
+    {
+      "type": "parent",
+      "from": "vicky",
+      "to": "wilhelm-ii"
+    },
+    {
+      "type": "parent",
+      "from": "frederick-iii",
+      "to": "wilhelm-ii"
+    },
+    {
+      "type": "spouse",
+      "from": "edward-vii",
+      "to": "alexandra"
+    },
+    {
+      "type": "spouse",
+      "from": "alice",
+      "to": "louis-iv"
+    },
+    {
+      "type": "spouse",
+      "from": "helena",
+      "to": "christian-sh"
+    },
+    {
+      "type": "spouse",
+      "from": "louise",
+      "to": "lorne"
+    },
+    {
+      "type": "spouse",
+      "from": "beatrice-1857",
+      "to": "henry-battenberg"
+    },
+    {
+      "type": "parent",
+      "from": "alice",
+      "to": "victoria-hesse"
+    },
+    {
+      "type": "parent",
+      "from": "louis-iv",
+      "to": "victoria-hesse"
+    },
+    {
+      "type": "parent",
+      "from": "alice",
+      "to": "alix"
+    },
+    {
+      "type": "parent",
+      "from": "louis-iv",
+      "to": "alix"
+    },
+    {
+      "type": "spouse",
+      "from": "nicholas-ii",
+      "to": "alix"
+    },
+    {
+      "type": "spouse",
+      "from": "victoria-hesse",
+      "to": "louis-battenberg"
+    },
+    {
+      "type": "parent",
+      "from": "victoria-hesse",
+      "to": "alice-battenberg"
+    },
+    {
+      "type": "parent",
+      "from": "louis-battenberg",
+      "to": "alice-battenberg"
+    },
+    {
+      "type": "parent",
+      "from": "victoria-hesse",
+      "to": "mountbatten"
+    },
+    {
+      "type": "parent",
+      "from": "louis-battenberg",
+      "to": "mountbatten"
+    },
+    {
+      "type": "spouse",
+      "from": "alice-battenberg",
+      "to": "andrew-greece"
+    },
+    {
+      "type": "parent",
+      "from": "alice-battenberg",
+      "to": "philip"
+    },
+    {
+      "type": "parent",
+      "from": "andrew-greece",
+      "to": "philip"
+    },
+    {
+      "type": "parent",
+      "from": "edward-vii",
+      "to": "albert-victor"
+    },
+    {
+      "type": "parent",
+      "from": "alexandra",
+      "to": "albert-victor"
+    },
+    {
+      "type": "parent",
+      "from": "edward-vii",
+      "to": "george-v"
+    },
+    {
+      "type": "parent",
+      "from": "alexandra",
+      "to": "george-v"
+    },
+    {
+      "type": "spouse",
+      "from": "george-v",
+      "to": "mary-teck"
+    },
+    {
+      "type": "parent",
+      "from": "george-v",
+      "to": "edward-viii"
+    },
+    {
+      "type": "parent",
+      "from": "mary-teck",
+      "to": "edward-viii"
+    },
+    {
+      "type": "parent",
+      "from": "george-v",
+      "to": "george-vi"
+    },
+    {
+      "type": "parent",
+      "from": "mary-teck",
+      "to": "george-vi"
+    },
+    {
+      "type": "parent",
+      "from": "george-v",
+      "to": "mary-princess-royal"
+    },
+    {
+      "type": "parent",
+      "from": "mary-teck",
+      "to": "mary-princess-royal"
+    },
+    {
+      "type": "parent",
+      "from": "george-v",
+      "to": "george-kent"
+    },
+    {
+      "type": "parent",
+      "from": "mary-teck",
+      "to": "george-kent"
+    },
+    {
+      "type": "spouse",
+      "from": "edward-viii",
+      "to": "wallis"
+    },
+    {
+      "type": "spouse",
+      "from": "george-vi",
+      "to": "queen-mother"
+    },
+    {
+      "type": "parent",
+      "from": "george-vi",
+      "to": "elizabeth-ii"
+    },
+    {
+      "type": "parent",
+      "from": "queen-mother",
+      "to": "elizabeth-ii"
+    },
+    {
+      "type": "parent",
+      "from": "george-vi",
+      "to": "margaret"
+    },
+    {
+      "type": "parent",
+      "from": "queen-mother",
+      "to": "margaret"
+    },
+    {
+      "type": "spouse",
+      "from": "margaret",
+      "to": "snowdon"
+    },
+    {
+      "type": "spouse",
+      "from": "elizabeth-ii",
+      "to": "philip"
+    },
+    {
+      "type": "parent",
+      "from": "elizabeth-ii",
+      "to": "charles-iii"
+    },
+    {
+      "type": "parent",
+      "from": "philip",
+      "to": "charles-iii"
+    },
+    {
+      "type": "parent",
+      "from": "elizabeth-ii",
+      "to": "anne"
+    },
+    {
+      "type": "parent",
+      "from": "philip",
+      "to": "anne"
+    },
+    {
+      "type": "parent",
+      "from": "elizabeth-ii",
+      "to": "andrew"
+    },
+    {
+      "type": "parent",
+      "from": "philip",
+      "to": "andrew"
+    },
+    {
+      "type": "parent",
+      "from": "elizabeth-ii",
+      "to": "edward"
+    },
+    {
+      "type": "parent",
+      "from": "philip",
+      "to": "edward"
+    },
+    {
+      "type": "spouse",
+      "from": "charles-iii",
+      "to": "diana"
+    },
+    {
+      "type": "spouse",
+      "from": "charles-iii",
+      "to": "camilla"
+    },
+    {
+      "type": "spouse",
+      "from": "anne",
+      "to": "mark-phillips"
+    },
+    {
+      "type": "spouse",
+      "from": "anne",
+      "to": "timothy-laurence"
+    },
+    {
+      "type": "spouse",
+      "from": "andrew",
+      "to": "sarah-ferguson"
+    },
+    {
+      "type": "spouse",
+      "from": "edward",
+      "to": "sophie"
+    },
+    {
+      "type": "parent",
+      "from": "charles-iii",
+      "to": "william"
+    },
+    {
+      "type": "parent",
+      "from": "diana",
+      "to": "william"
+    },
+    {
+      "type": "parent",
+      "from": "charles-iii",
+      "to": "harry"
+    },
+    {
+      "type": "parent",
+      "from": "diana",
+      "to": "harry"
+    },
+    {
+      "type": "spouse",
+      "from": "william",
+      "to": "catherine"
+    },
+    {
+      "type": "spouse",
+      "from": "harry",
+      "to": "meghan"
+    },
+    {
+      "type": "parent",
+      "from": "anne",
+      "to": "peter-phillips"
+    },
+    {
+      "type": "parent",
+      "from": "mark-phillips",
+      "to": "peter-phillips"
+    },
+    {
+      "type": "parent",
+      "from": "anne",
+      "to": "zara"
+    },
+    {
+      "type": "parent",
+      "from": "mark-phillips",
+      "to": "zara"
+    },
+    {
+      "type": "parent",
+      "from": "andrew",
+      "to": "beatrice"
+    },
+    {
+      "type": "parent",
+      "from": "sarah-ferguson",
+      "to": "beatrice"
+    },
+    {
+      "type": "parent",
+      "from": "andrew",
+      "to": "eugenie"
+    },
+    {
+      "type": "parent",
+      "from": "sarah-ferguson",
+      "to": "eugenie"
+    },
+    {
+      "type": "parent",
+      "from": "edward",
+      "to": "lady-louise"
+    },
+    {
+      "type": "parent",
+      "from": "sophie",
+      "to": "lady-louise"
+    },
+    {
+      "type": "parent",
+      "from": "edward",
+      "to": "james"
+    },
+    {
+      "type": "parent",
+      "from": "sophie",
+      "to": "james"
+    },
+    {
+      "type": "parent",
+      "from": "william",
+      "to": "prince-george"
+    },
+    {
+      "type": "parent",
+      "from": "catherine",
+      "to": "prince-george"
+    },
+    {
+      "type": "parent",
+      "from": "william",
+      "to": "charlotte"
+    },
+    {
+      "type": "parent",
+      "from": "catherine",
+      "to": "charlotte"
+    },
+    {
+      "type": "parent",
+      "from": "william",
+      "to": "prince-louis"
+    },
+    {
+      "type": "parent",
+      "from": "catherine",
+      "to": "prince-louis"
+    },
+    {
+      "type": "parent",
+      "from": "harry",
+      "to": "archie"
+    },
+    {
+      "type": "parent",
+      "from": "meghan",
+      "to": "archie"
+    },
+    {
+      "type": "parent",
+      "from": "harry",
+      "to": "lilibet"
+    },
+    {
+      "type": "parent",
+      "from": "meghan",
+      "to": "lilibet"
+    }
+  ]
+}
