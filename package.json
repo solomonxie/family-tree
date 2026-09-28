@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "react-native start",
-    "ios": "react-native run-ios",
-    "ios:device": "scripts/install-ios-device.sh",
+    "ios": "scripts/install-ios-device.sh",
     "android": "react-native run-android",
     "pods": "cd ios && bundle exec pod install",
     "lint": "eslint .",
