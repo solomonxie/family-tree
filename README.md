@@ -11,7 +11,7 @@ Bare React Native (no Expo) · React Navigation · op-sqlite · Reanimated + Ges
 ```bash
 npm install
 npm run pods
-cp ios/Local.xcconfig.example ios/Local.xcconfig   # set DEVELOPMENT_TEAM
+cp ios/Local.xcconfig.example ios/Local.xcconfig   # set DEVELOPMENT_TEAM and APP_BUNDLE_ID
 npm run ios                                         # release build → connected iPhone
 ```
 

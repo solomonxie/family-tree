@@ -1,0 +1,13 @@
+// Placeholders for a fresh clone. Put your own values in ios/Local.xcconfig (gitignored):
+//   DEVELOPMENT_TEAM = ABCDE12345
+//   APP_BUNDLE_ID = com.yourname.familytree
+DEVELOPMENT_TEAM =
+APP_BUNDLE_ID = com.example.familytree
+PRODUCT_BUNDLE_IDENTIFIER = $(APP_BUNDLE_ID)
+
+// Lets Info.plist use APP_BUNDLE_ID inside dictionary keys (NSUbiquitousContainers); $(...) only expands in values.
+INFOPLIST_PREPROCESS = YES
+INFOPLIST_PREPROCESSOR_DEFINITIONS = APP_BUNDLE_ID=$(APP_BUNDLE_ID)
+INFOPLIST_OTHER_PREPROCESSOR_FLAGS = -traditional
+
+#include? "Local.xcconfig"

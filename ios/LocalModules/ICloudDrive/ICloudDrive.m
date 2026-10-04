@@ -1,7 +1,6 @@
 #import <Foundation/Foundation.h>
 #import <React/RCTBridgeModule.h>
 
-static NSString *const kContainer = @"iCloud.com.example.familytree";
 
 @interface ICloudDrive : NSObject <RCTBridgeModule>
 @end
@@ -31,8 +30,12 @@ static BOOL BuildIsEntitled(void) {
   return [containers isKindOfClass:[NSArray class]] && containers.count > 0;
 }
 
+static NSString *ContainerID(void) {
+  return [@"iCloud." stringByAppendingString:[[NSBundle mainBundle] bundleIdentifier]];
+}
+
 static NSURL *DocumentsURL(void) {
-  NSURL *root = [[NSFileManager defaultManager] URLForUbiquityContainerIdentifier:kContainer];
+  NSURL *root = [[NSFileManager defaultManager] URLForUbiquityContainerIdentifier:ContainerID()];
   if (!root) return nil;
   NSURL *docs = [root URLByAppendingPathComponent:@"Documents" isDirectory:YES];
   [[NSFileManager defaultManager] createDirectoryAtURL:docs withIntermediateDirectories:YES attributes:nil error:nil];

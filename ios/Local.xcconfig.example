@@ -1,3 +1,5 @@
-// Copy to ios/Local.xcconfig (gitignored) and fill in your Apple Developer Team ID.
+// Copy to ios/Local.xcconfig (gitignored) and set your own values.
+// Team ID: developer.apple.com → Account → Membership details.
 DEVELOPMENT_TEAM = YOUR_TEAM_ID
+APP_BUNDLE_ID = com.yourname.familytree
 CODE_SIGN_STYLE = Automatic

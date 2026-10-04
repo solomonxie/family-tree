@@ -4,9 +4,11 @@ set -eu
 cd "$(dirname "$0")/.."
 
 if [ ! -f ios/Local.xcconfig ]; then
-  echo "Missing ios/Local.xcconfig — copy ios/Local.xcconfig.example and set DEVELOPMENT_TEAM." >&2
+  echo "Missing ios/Local.xcconfig — copy ios/Local.xcconfig.example and set DEVELOPMENT_TEAM / APP_BUNDLE_ID." >&2
   exit 1
 fi
+APP_ID=$(sed -n 's/^APP_BUNDLE_ID *= *//p' ios/Local.xcconfig)
+[ -n "$APP_ID" ] || { echo "APP_BUNDLE_ID not set in ios/Local.xcconfig." >&2; exit 1; }
 
 DEVICE=${DEVICE_ID:-$(xcrun devicectl list devices --json-output /dev/stdout 2>/dev/null | node -e '
   let s = ""; process.stdin.on("data", d => (s += d)).on("end", () => {
@@ -44,4 +46,4 @@ fi
 
 APP=ios/build/Build/Products/Release-iphoneos/FamilyTree.app
 xcrun devicectl device install app --device "$DEVICE" "$APP"
-xcrun devicectl device process launch --device "$DEVICE" com.example.familytree
+xcrun devicectl device process launch --device "$DEVICE" "$APP_ID"
