@@ -21,7 +21,7 @@ DEVICE=${DEVICE_ID:-$(xcrun devicectl list devices --json-output /dev/stdout 2>/
 build() {
   xcodebuild -workspace ios/FamilyTree.xcworkspace -scheme FamilyTree -configuration Release \
     -destination "id=$DEVICE" -xcconfig ios/Local.xcconfig -allowProvisioningUpdates \
-    -derivedDataPath ios/build "$@" build > /tmp/family-tree-build.log 2>&1
+    -derivedDataPath /tmp/familytree-build "$@" build > /tmp/family-tree-build.log 2>&1
 }
 
 # iCloud needs a profile with the iCloud capability (Xcode → Settings → Accounts signed in).
@@ -44,6 +44,6 @@ else
   fail
 fi
 
-APP=ios/build/Build/Products/Release-iphoneos/FamilyTree.app
+APP=/tmp/familytree-build/Build/Products/Release-iphoneos/FamilyTree.app
 xcrun devicectl device install app --device "$DEVICE" "$APP"
 xcrun devicectl device process launch --device "$DEVICE" "$APP_ID"
