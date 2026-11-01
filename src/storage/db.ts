@@ -1,31 +1,13 @@
 import { open, type DB, type Scalar } from '@op-engineering/op-sqlite';
 
-const MIGRATIONS: string[][] = [
-  [
-    `CREATE TABLE trees (
-      id TEXT PRIMARY KEY, title TEXT NOT NULL, kind TEXT NOT NULL, source TEXT,
-      created_at INTEGER NOT NULL, updated_at INTEGER NOT NULL, viewport TEXT)`,
-    `CREATE TABLE persons (
-      id TEXT PRIMARY KEY, tree_id TEXT NOT NULL, name TEXT NOT NULL, sex TEXT,
-      birth_year INTEGER, death_year INTEGER, dates_approx INTEGER, origin_region TEXT,
-      notes TEXT, photo_path TEXT)`,
-    'CREATE INDEX persons_tree ON persons(tree_id)',
-    `CREATE TABLE relationships (
-      id TEXT PRIMARY KEY, tree_id TEXT NOT NULL, type TEXT NOT NULL,
-      from_id TEXT NOT NULL, to_id TEXT NOT NULL)`,
-    'CREATE INDEX relationships_tree ON relationships(tree_id)',
-    `CREATE TABLE change_log (
-      id INTEGER PRIMARY KEY AUTOINCREMENT, tbl TEXT NOT NULL, row_id TEXT NOT NULL,
-      op TEXT NOT NULL, before TEXT, after TEXT, at INTEGER NOT NULL)`,
-    'CREATE TABLE settings (key TEXT PRIMARY KEY, value TEXT)',
-  ],
-];
+import { dbName } from './profile';
+import { MIGRATIONS } from './schema';
 
 let db: DB | undefined;
 
 export function getDb(): DB {
   if (!db) {
-    db = open({ name: 'family-tree.sqlite' });
+    db = open({ name: dbName() });
     db.executeSync('PRAGMA journal_mode = WAL');
     migrate(db);
   }
@@ -45,6 +27,12 @@ function migrate(d: DB) {
       throw e;
     }
   }
+}
+
+// Next getDb() opens whichever profile is current.
+export function closeDb() {
+  db?.close();
+  db = undefined;
 }
 
 export function query<T = Record<string, Scalar>>(sql: string, params: Scalar[] = []): T[] {

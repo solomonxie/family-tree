@@ -26,6 +26,11 @@ const toPerson = (r: Row): Person => ({
   birthYear: num(r.birth_year),
   deathYear: num(r.death_year),
   datesApprox: r.dates_approx ? true : undefined,
+  birthDate: str(r.birth_date),
+  deathDate: str(r.death_date),
+  birthPlace: str(r.birth_place),
+  deathPlace: str(r.death_place),
+  deceased: r.deceased ? true : undefined,
   originRegion: str(r.origin_region),
   notes: str(r.notes),
   photoPath: str(r.photo_path),
@@ -60,7 +65,13 @@ export interface ChangeEntry {
   at: number;
 }
 
-// Append-only: rows are only ever inserted, never updated or pruned.
+// Drops the history of rows being deleted, so deleted people don't live on in it (or in backups).
+// A bare delete entry follows, so the next backup still sees a change.
+function forget(tbl: string, ids: string[]) {
+  for (const id of ids) run('DELETE FROM change_log WHERE tbl = ? AND row_id = ?', [tbl, id]);
+}
+
+// Append-only, except that deleting a tree or person removes its entries.
 export function changeLog(): ChangeEntry[] {
   return query('SELECT * FROM change_log ORDER BY id').map(r => ({
     id: Number(r.id),
@@ -124,11 +135,13 @@ export function deleteTree(id: string): Person[] {
   return inTransaction(() => {
     const persons = getPersons(id);
     const relationships = getRelationships(id);
-    const before = getTree(id);
     run('DELETE FROM relationships WHERE tree_id = ?', [id]);
     run('DELETE FROM persons WHERE tree_id = ?', [id]);
     run('DELETE FROM trees WHERE id = ?', [id]);
-    log('trees', id, 'delete', { tree: before, persons, relationships });
+    forget('relationships', relationships.map(r => r.id));
+    forget('persons', persons.map(p => p.id));
+    forget('trees', [id]);
+    log('trees', id, 'delete');
     return persons;
   });
 }
@@ -190,22 +203,43 @@ export function originsInUse(): string[] {
   ).map(r => String(r.o));
 }
 
+const PERSON_COLUMNS = [
+  'name',
+  'sex',
+  'birth_year',
+  'death_year',
+  'dates_approx',
+  'birth_date',
+  'death_date',
+  'birth_place',
+  'death_place',
+  'deceased',
+  'origin_region',
+  'notes',
+  'photo_path',
+];
+
+const personValues = (p: PersonDraft): Scalar[] => [
+  p.name,
+  p.sex ?? null,
+  p.birthYear ?? null,
+  p.deathYear ?? null,
+  p.datesApprox ? 1 : 0,
+  p.birthDate ?? null,
+  p.deathDate ?? null,
+  p.birthPlace ?? null,
+  p.deathPlace ?? null,
+  p.deceased ? 1 : 0,
+  p.originRegion ?? null,
+  p.notes ?? null,
+  p.photoPath ?? null,
+];
+
 export function insertPerson(p: Person) {
   run(
-    `INSERT INTO persons (id, tree_id, name, sex, birth_year, death_year, dates_approx, origin_region, notes, photo_path)
-     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-    [
-      p.id,
-      p.treeId,
-      p.name,
-      p.sex ?? null,
-      p.birthYear ?? null,
-      p.deathYear ?? null,
-      p.datesApprox ? 1 : 0,
-      p.originRegion ?? null,
-      p.notes ?? null,
-      p.photoPath ?? null,
-    ],
+    `INSERT INTO persons (id, tree_id, ${PERSON_COLUMNS.join(', ')})
+     VALUES (?, ?, ${PERSON_COLUMNS.map(() => '?').join(', ')})`,
+    [p.id, p.treeId, ...personValues(p)],
   );
   log('persons', p.id, 'insert', undefined, p);
 }
@@ -252,21 +286,10 @@ function addRelationship(treeId: string, type: RelationshipType, person: Person,
 export function updatePerson(id: string, draft: PersonDraft) {
   const before = getPerson(id)!;
   const after: Person = { ...draft, id, treeId: before.treeId };
-  run(
-    `UPDATE persons SET name = ?, sex = ?, birth_year = ?, death_year = ?, dates_approx = ?,
-     origin_region = ?, notes = ?, photo_path = ? WHERE id = ?`,
-    [
-      after.name,
-      after.sex ?? null,
-      after.birthYear ?? null,
-      after.deathYear ?? null,
-      after.datesApprox ? 1 : 0,
-      after.originRegion ?? null,
-      after.notes ?? null,
-      after.photoPath ?? null,
-      id,
-    ],
-  );
+  run(`UPDATE persons SET ${PERSON_COLUMNS.map(c => `${c} = ?`).join(', ')} WHERE id = ?`, [
+    ...personValues(after),
+    id,
+  ]);
   log('persons', id, 'update', before, after);
   touchTree(before.treeId);
 }
@@ -282,7 +305,9 @@ export function deletePerson(id: string): DeletedPerson {
     const relationships = query('SELECT * FROM relationships WHERE from_id = ? OR to_id = ?', [id, id]).map(toRel);
     run('DELETE FROM relationships WHERE from_id = ? OR to_id = ?', [id, id]);
     run('DELETE FROM persons WHERE id = ?', [id]);
-    log('persons', id, 'delete', { person, relationships });
+    forget('relationships', relationships.map(r => r.id));
+    forget('persons', [id]);
+    log('persons', id, 'delete');
     touchTree(person.treeId);
     return { person, relationships };
   });

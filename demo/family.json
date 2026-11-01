@@ -1,0 +1,878 @@
+{
+ "trees": [
+  {
+   "title": "Hartwell & Lin Family",
+   "persons": [
+    {
+     "key": "thomas",
+     "name": "Thomas Hartwell",
+     "sex": "m",
+     "birth": {
+      "year": 1884,
+      "month": 4,
+      "day": 3,
+      "place": "Bristol, England"
+     },
+     "death": {
+      "year": 1951,
+      "month": 11,
+      "day": 20,
+      "place": "Toronto, Ontario, Canada"
+     },
+     "notes": "Ship’s carpenter at the Bristol docks. Sailed for Canada in spring 1912 with £14 and a chest of tools; built boats on Toronto’s waterfront for thirty years."
+    },
+    {
+     "key": "margaret",
+     "name": "Margaret Doyle",
+     "sex": "f",
+     "birth": {
+      "year": 1888,
+      "month": 8,
+      "day": 15,
+      "place": "Cork, Ireland"
+     },
+     "death": {
+      "year": 1969,
+      "month": 2,
+      "day": 2,
+      "place": "Toronto, Ontario, Canada"
+     },
+     "notes": "Met Thomas on the crossing to Halifax. Ran a boarding house on Queen Street East."
+    },
+    {
+     "key": "giuseppe",
+     "name": "Giuseppe Rinaldi",
+     "sex": "m",
+     "birth": {
+      "year": 1886,
+      "month": 1,
+      "day": 30,
+      "place": "Lucca, Tuscany, Italy"
+     },
+     "death": {
+      "year": 1958,
+      "month": 6,
+      "day": 11,
+      "place": "Hamilton, Ontario, Canada"
+     },
+     "notes": "Stonemason. Several church façades in Hamilton carry his work."
+    },
+    {
+     "key": "rosa",
+     "name": "Rosa Bianchi",
+     "sex": "f",
+     "birth": {
+      "year": 1890,
+      "month": 5,
+      "day": 9,
+      "place": "Lucca, Tuscany, Italy"
+     },
+     "death": {
+      "year": 1975,
+      "month": 12,
+      "day": 24,
+      "place": "Hamilton, Ontario, Canada"
+     },
+     "notes": "Kept a kitchen garden of tomatoes, figs and basil grown from seeds she carried from Lucca."
+    },
+    {
+     "key": "wenjie",
+     "name": "Lin Wenjie 林文杰",
+     "sex": "m",
+     "birth": {
+      "year": 1892,
+      "place": "Taishan, Guangdong, China",
+      "approx": true
+     },
+     "death": {
+      "year": 1960,
+      "month": 3,
+      "day": 8,
+      "place": "Vancouver, British Columbia, Canada"
+     },
+     "notes": "Arrived in Victoria in 1910 and later opened a grocery on Pender Street, Vancouver. Birth year from his immigration papers, give or take a year."
+    },
+    {
+     "key": "meilan",
+     "name": "Chen Meilan 陈美兰",
+     "sex": "f",
+     "birth": {
+      "year": 1897,
+      "month": 10,
+      "day": 2,
+      "place": "Taishan, Guangdong, China"
+     },
+     "death": {
+      "year": 1983,
+      "month": 7,
+      "day": 19,
+      "place": "Vancouver, British Columbia, Canada"
+     }
+    },
+    {
+     "key": "anders",
+     "name": "Anders Lindqvist",
+     "sex": "m",
+     "birth": {
+      "year": 1890,
+      "month": 7,
+      "day": 21,
+      "place": "Gothenburg, Sweden"
+     },
+     "death": {
+      "year": 1966,
+      "month": 9,
+      "day": 14,
+      "place": "Winnipeg, Manitoba, Canada"
+     },
+     "notes": "Railway engineer on the Canadian Pacific line."
+    },
+    {
+     "key": "ingrid",
+     "name": "Ingrid Berg",
+     "sex": "f",
+     "birth": {
+      "year": 1893,
+      "month": 2,
+      "day": 11,
+      "place": "Gothenburg, Sweden"
+     },
+     "death": {
+      "year": 1979,
+      "month": 4,
+      "day": 30,
+      "place": "Winnipeg, Manitoba, Canada"
+     }
+    },
+    {
+     "key": "william",
+     "name": "William Hartwell",
+     "sex": "m",
+     "birth": {
+      "year": 1914,
+      "month": 6,
+      "day": 18,
+      "place": "Toronto, Ontario, Canada"
+     },
+     "death": {
+      "year": 1988,
+      "month": 10,
+      "day": 5,
+      "place": "Toronto, Ontario, Canada"
+     },
+     "origin": "Ontario",
+     "notes": "Machinist, then foreman at a Hamilton steel mill. Married Lucia in 1943 while home on leave."
+    },
+    {
+     "key": "edith",
+     "name": "Edith Hartwell",
+     "sex": "f",
+     "birth": {
+      "year": 1917,
+      "month": 3,
+      "day": 27,
+      "place": "Toronto, Ontario, Canada"
+     },
+     "death": {
+      "year": 2004,
+      "month": 8,
+      "day": 16,
+      "place": "Toronto, Ontario, Canada"
+     },
+     "origin": "Ontario",
+     "notes": "Schoolteacher for 38 years."
+    },
+    {
+     "key": "frank",
+     "name": "Frank Moore",
+     "sex": "m",
+     "birth": {
+      "year": 1915,
+      "month": 12,
+      "day": 1,
+      "place": "Toronto, Ontario, Canada"
+     },
+     "death": {
+      "year": 1990,
+      "month": 1,
+      "day": 22,
+      "place": "Toronto, Ontario, Canada"
+     },
+     "origin": "Ontario"
+    },
+    {
+     "key": "james",
+     "name": "James Hartwell",
+     "sex": "m",
+     "birth": {
+      "year": 1920,
+      "month": 9,
+      "day": 9,
+      "place": "Toronto, Ontario, Canada"
+     },
+     "death": {
+      "year": 1944,
+      "month": 7,
+      "day": 18,
+      "place": "Caen, Normandy, France"
+     },
+     "origin": "Ontario",
+     "notes": "Royal Canadian Infantry. Killed in action near Caen, July 1944. Buried at Bretteville-sur-Laize."
+    },
+    {
+     "key": "lucia",
+     "name": "Lucia Rinaldi",
+     "sex": "f",
+     "birth": {
+      "year": 1918,
+      "month": 11,
+      "day": 14,
+      "place": "Hamilton, Ontario, Canada"
+     },
+     "death": {
+      "year": 2009,
+      "month": 5,
+      "day": 3,
+      "place": "Toronto, Ontario, Canada"
+     },
+     "origin": "Ontario",
+     "notes": "Seamstress; made every wedding dress in the family for two generations."
+    },
+    {
+     "key": "marco",
+     "name": "Marco Rinaldi",
+     "sex": "m",
+     "birth": {
+      "year": 1921,
+      "month": 4,
+      "day": 4,
+      "place": "Hamilton, Ontario, Canada"
+     },
+     "death": {
+      "year": 1999,
+      "month": 9,
+      "day": 27,
+      "place": "Hamilton, Ontario, Canada"
+     },
+     "origin": "Ontario"
+    },
+    {
+     "key": "david",
+     "name": "David Lin 林國榮",
+     "sex": "m",
+     "birth": {
+      "year": 1924,
+      "month": 1,
+      "day": 12,
+      "place": "Vancouver, British Columbia, Canada"
+     },
+     "death": {
+      "year": 2011,
+      "month": 6,
+      "day": 30,
+      "place": "Vancouver, British Columbia, Canada"
+     },
+     "origin": "British Columbia",
+     "notes": "Took over the family grocery and grew it into three shops. Fluent in Taishanese, Cantonese and English."
+    },
+    {
+     "key": "grace",
+     "name": "Grace Lin",
+     "sex": "f",
+     "birth": {
+      "year": 1927,
+      "month": 8,
+      "day": 8,
+      "place": "Vancouver, British Columbia, Canada"
+     },
+     "death": {
+      "year": 2019,
+      "month": 2,
+      "day": 14,
+      "place": "Vancouver, British Columbia, Canada"
+     },
+     "origin": "British Columbia",
+     "notes": "Nurse at Vancouver General Hospital."
+    },
+    {
+     "key": "karin",
+     "name": "Karin Lindqvist",
+     "sex": "f",
+     "birth": {
+      "year": 1926,
+      "month": 5,
+      "day": 17,
+      "place": "Winnipeg, Manitoba, Canada"
+     },
+     "death": {
+      "year": 2015,
+      "month": 11,
+      "day": 9,
+      "place": "Vancouver, British Columbia, Canada"
+     },
+     "origin": "Manitoba",
+     "notes": "Met David at UBC in 1948."
+    },
+    {
+     "key": "robert",
+     "name": "Robert Hartwell",
+     "sex": "m",
+     "birth": {
+      "year": 1945,
+      "month": 2,
+      "day": 22,
+      "place": "Toronto, Ontario, Canada"
+     },
+     "origin": "Ontario",
+     "notes": "Civil engineer. Keeps the family photo archive."
+    },
+    {
+     "key": "helen",
+     "name": "Helen Lin",
+     "sex": "f",
+     "birth": {
+      "year": 1950,
+      "month": 7,
+      "day": 4,
+      "place": "Vancouver, British Columbia, Canada"
+     },
+     "origin": "British Columbia",
+     "notes": "Pharmacist. Started this family tree in 1998 from her grandmother’s letters."
+    },
+    {
+     "key": "anna",
+     "name": "Anna Hartwell",
+     "sex": "f",
+     "birth": {
+      "year": 1948,
+      "month": 12,
+      "day": 10,
+      "place": "Toronto, Ontario, Canada"
+     },
+     "origin": "Ontario"
+    },
+    {
+     "key": "paul",
+     "name": "Paul Novák",
+     "sex": "m",
+     "birth": {
+      "year": 1946,
+      "month": 3,
+      "day": 15,
+      "place": "Brno, Czechoslovakia"
+     },
+     "origin": "Czechia",
+     "notes": "Left Czechoslovakia in 1968 and settled in Ottawa as a translator."
+    },
+    {
+     "key": "michael",
+     "name": "Michael Hartwell",
+     "sex": "m",
+     "birth": {
+      "year": 1952,
+      "month": 10,
+      "day": 28,
+      "place": "Toronto, Ontario, Canada"
+     },
+     "death": {
+      "year": 2017,
+      "month": 4,
+      "day": 12,
+      "place": "Toronto, Ontario, Canada"
+     },
+     "origin": "Ontario"
+    },
+    {
+     "key": "joan",
+     "name": "Joan Moore",
+     "sex": "f",
+     "birth": {
+      "year": 1942,
+      "month": 6,
+      "day": 6,
+      "place": "Toronto, Ontario, Canada"
+     },
+     "origin": "Ontario"
+    },
+    {
+     "key": "peter",
+     "name": "Peter Lin",
+     "sex": "m",
+     "birth": {
+      "year": 1953,
+      "month": 9,
+      "day": 19,
+      "place": "Vancouver, British Columbia, Canada"
+     },
+     "origin": "British Columbia"
+    },
+    {
+     "key": "aiko",
+     "name": "Aiko Tanaka",
+     "sex": "f",
+     "birth": {
+      "year": 1956,
+      "month": 4,
+      "day": 1,
+      "place": "Osaka, Japan"
+     },
+     "origin": "Japan"
+    },
+    {
+     "key": "daniel",
+     "name": "Daniel Hartwell",
+     "sex": "m",
+     "birth": {
+      "year": 1975,
+      "month": 5,
+      "day": 23,
+      "place": "Toronto, Ontario, Canada"
+     },
+     "origin": "Ontario",
+     "notes": "Software developer."
+    },
+    {
+     "key": "priya",
+     "name": "Priya Sharma",
+     "sex": "f",
+     "birth": {
+      "year": 1978,
+      "month": 1,
+      "day": 30,
+      "place": "Mumbai, Maharashtra, India"
+     },
+     "origin": "India"
+    },
+    {
+     "key": "claire",
+     "name": "Claire Hartwell",
+     "sex": "f",
+     "birth": {
+      "year": 1978,
+      "month": 11,
+      "day": 2,
+      "place": "Toronto, Ontario, Canada"
+     },
+     "origin": "Ontario",
+     "notes": "Paediatrician in Calgary."
+    },
+    {
+     "key": "marcus",
+     "name": "Marcus Okafor",
+     "sex": "m",
+     "birth": {
+      "year": 1976,
+      "month": 8,
+      "day": 14,
+      "place": "Lagos, Nigeria"
+     },
+     "origin": "Nigeria"
+    },
+    {
+     "key": "emily",
+     "name": "Emily Hartwell",
+     "sex": "f",
+     "birth": {
+      "year": 1983,
+      "month": 3,
+      "day": 9,
+      "place": "Vancouver, British Columbia, Canada"
+     },
+     "origin": "British Columbia"
+    },
+    {
+     "key": "tomas",
+     "name": "Tomas Novák",
+     "sex": "m",
+     "birth": {
+      "year": 1972,
+      "month": 2,
+      "day": 17,
+      "place": "Ottawa, Ontario, Canada"
+     },
+     "origin": "Ontario"
+    },
+    {
+     "key": "sarah",
+     "name": "Sarah Kim",
+     "sex": "f",
+     "birth": {
+      "year": 1974,
+      "month": 12,
+      "day": 5,
+      "place": "Seoul, South Korea"
+     },
+     "origin": "South Korea"
+    },
+    {
+     "key": "lena",
+     "name": "Lena Novák",
+     "sex": "f",
+     "birth": {
+      "year": 1975,
+      "month": 7,
+      "day": 27,
+      "place": "Ottawa, Ontario, Canada"
+     },
+     "origin": "Ontario"
+    },
+    {
+     "key": "kenji",
+     "name": "Kenji Lin",
+     "sex": "m",
+     "birth": {
+      "year": 1984,
+      "month": 10,
+      "day": 10,
+      "place": "Vancouver, British Columbia, Canada"
+     },
+     "origin": "British Columbia"
+    },
+    {
+     "key": "mei",
+     "name": "Mei Lin",
+     "sex": "f",
+     "birth": {
+      "year": 1987,
+      "month": 6,
+      "day": 21,
+      "place": "Vancouver, British Columbia, Canada"
+     },
+     "origin": "British Columbia"
+    },
+    {
+     "key": "maya",
+     "name": "Maya Hartwell",
+     "sex": "f",
+     "birth": {
+      "year": 2006,
+      "month": 9,
+      "day": 1,
+      "place": "Toronto, Ontario, Canada"
+     },
+     "origin": "Ontario"
+    },
+    {
+     "key": "arjun",
+     "name": "Arjun Hartwell",
+     "sex": "m",
+     "birth": {
+      "year": 2009,
+      "month": 4,
+      "day": 18,
+      "place": "Toronto, Ontario, Canada"
+     },
+     "origin": "Ontario"
+    },
+    {
+     "key": "noah",
+     "name": "Noah Okafor",
+     "sex": "m",
+     "birth": {
+      "year": 2010,
+      "month": 1,
+      "day": 25,
+      "place": "Calgary, Alberta, Canada"
+     },
+     "origin": "Alberta"
+    },
+    {
+     "key": "zara",
+     "name": "Zara Okafor",
+     "sex": "f",
+     "birth": {
+      "year": 2013,
+      "month": 6,
+      "day": 7,
+      "place": "Calgary, Alberta, Canada"
+     },
+     "origin": "Alberta"
+    },
+    {
+     "key": "ethan",
+     "name": "Ethan Novák",
+     "sex": "m",
+     "birth": {
+      "year": 2004,
+      "month": 11,
+      "day": 11,
+      "place": "Ottawa, Ontario, Canada"
+     },
+     "origin": "Ontario"
+    }
+   ],
+   "families": [
+    {
+     "partners": [
+      "thomas",
+      "margaret"
+     ],
+     "children": [
+      "william",
+      "edith",
+      "james"
+     ]
+    },
+    {
+     "partners": [
+      "giuseppe",
+      "rosa"
+     ],
+     "children": [
+      "lucia",
+      "marco"
+     ]
+    },
+    {
+     "partners": [
+      "wenjie",
+      "meilan"
+     ],
+     "children": [
+      "david",
+      "grace"
+     ]
+    },
+    {
+     "partners": [
+      "anders",
+      "ingrid"
+     ],
+     "children": [
+      "karin"
+     ]
+    },
+    {
+     "partners": [
+      "william",
+      "lucia"
+     ],
+     "children": [
+      "robert",
+      "anna",
+      "michael"
+     ]
+    },
+    {
+     "partners": [
+      "edith",
+      "frank"
+     ],
+     "children": [
+      "joan"
+     ]
+    },
+    {
+     "partners": [
+      "david",
+      "karin"
+     ],
+     "children": [
+      "helen",
+      "peter"
+     ]
+    },
+    {
+     "partners": [
+      "robert",
+      "helen"
+     ],
+     "children": [
+      "daniel",
+      "claire",
+      "emily"
+     ]
+    },
+    {
+     "partners": [
+      "anna",
+      "paul"
+     ],
+     "children": [
+      "tomas",
+      "lena"
+     ]
+    },
+    {
+     "partners": [
+      "peter",
+      "aiko"
+     ],
+     "children": [
+      "kenji",
+      "mei"
+     ]
+    },
+    {
+     "partners": [
+      "daniel",
+      "priya"
+     ],
+     "children": [
+      "maya",
+      "arjun"
+     ]
+    },
+    {
+     "partners": [
+      "claire",
+      "marcus"
+     ],
+     "children": [
+      "noah",
+      "zara"
+     ]
+    },
+    {
+     "partners": [
+      "tomas",
+      "sarah"
+     ],
+     "children": [
+      "ethan"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Okafor Family (Marcus’s side)",
+   "persons": [
+    {
+     "key": "chukwuma",
+     "name": "Chukwuma Okafor",
+     "sex": "m",
+     "birth": {
+      "year": 1921,
+      "place": "Enugu, Nigeria",
+      "approx": true
+     },
+     "death": {
+      "year": 1994,
+      "month": 2,
+      "day": 3,
+      "place": "Enugu, Nigeria"
+     },
+     "notes": "Palm-oil trader in Enugu."
+    },
+    {
+     "key": "ngozi",
+     "name": "Ngozi Eze",
+     "sex": "f",
+     "birth": {
+      "year": 1926,
+      "place": "Enugu, Nigeria",
+      "approx": true
+     },
+     "death": {
+      "year": 2008,
+      "month": 10,
+      "day": 21,
+      "place": "Lagos, Nigeria"
+     }
+    },
+    {
+     "key": "emeka",
+     "name": "Emeka Okafor",
+     "sex": "m",
+     "birth": {
+      "year": 1949,
+      "month": 5,
+      "day": 2,
+      "place": "Enugu, Nigeria"
+     },
+     "death": {
+      "year": 2020,
+      "month": 12,
+      "day": 30,
+      "place": "Lagos, Nigeria"
+     },
+     "notes": "Electrical engineer with the national power authority."
+    },
+    {
+     "key": "adaeze",
+     "name": "Adaeze Okafor",
+     "sex": "f",
+     "birth": {
+      "year": 1953,
+      "month": 9,
+      "day": 12,
+      "place": "Lagos, Nigeria"
+     },
+     "origin": "Nigeria"
+    },
+    {
+     "key": "folake",
+     "name": "Folake Adeyemi",
+     "sex": "f",
+     "birth": {
+      "year": 1951,
+      "month": 3,
+      "day": 3,
+      "place": "Ibadan, Oyo, Nigeria"
+     },
+     "origin": "Nigeria"
+    },
+    {
+     "key": "marcus",
+     "name": "Marcus Okafor",
+     "sex": "m",
+     "birth": {
+      "year": 1976,
+      "month": 8,
+      "day": 14,
+      "place": "Lagos, Nigeria"
+     },
+     "origin": "Nigeria",
+     "notes": "Moved to Calgary in 2001 for graduate school."
+    },
+    {
+     "key": "chiamaka",
+     "name": "Chiamaka Okafor",
+     "sex": "f",
+     "birth": {
+      "year": 1979,
+      "month": 11,
+      "day": 30,
+      "place": "Lagos, Nigeria"
+     },
+     "origin": "Nigeria"
+    },
+    {
+     "key": "ifeanyi",
+     "name": "Ifeanyi Okafor",
+     "sex": "m",
+     "birth": {
+      "year": 1983,
+      "month": 4,
+      "day": 15,
+      "place": "Lagos, Nigeria"
+     },
+     "origin": "Nigeria"
+    }
+   ],
+   "families": [
+    {
+     "partners": [
+      "chukwuma",
+      "ngozi"
+     ],
+     "children": [
+      "emeka",
+      "adaeze"
+     ]
+    },
+    {
+     "partners": [
+      "emeka",
+      "folake"
+     ],
+     "children": [
+      "marcus",
+      "chiamaka",
+      "ifeanyi"
+     ]
+    }
+   ]
+  }
+ ]
+}

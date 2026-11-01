@@ -70,6 +70,26 @@ RCT_EXPORT_METHOD(save:(NSString *)sourcePath name:(NSString *)name
   resolve(dest.path);
 }
 
+// Deletes every item in the container's Documents folder; resolves the count removed.
+RCT_EXPORT_METHOD(removeAll:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject) {
+  NSURL *docs = DocumentsURL();
+  if (!docs) return reject(@"unavailable", @"iCloud Drive isn't available.", nil);
+  NSFileManager *fm = [NSFileManager defaultManager];
+  NSArray<NSURL *> *items = [fm contentsOfDirectoryAtURL:docs includingPropertiesForKeys:nil options:0 error:nil] ?: @[];
+  NSUInteger removed = 0;
+  for (NSURL *item in items) {
+    __block NSError *err = nil;
+    NSError *coordErr = nil;
+    [[[NSFileCoordinator alloc] initWithFilePresenter:nil]
+        coordinateWritingItemAtURL:item options:NSFileCoordinatorWritingForDeleting error:&coordErr
+                        byAccessor:^(NSURL *url) { [fm removeItemAtURL:url error:&err]; }];
+    NSError *failure = coordErr ?: err;
+    if (failure) return reject(@"delete_failed", failure.localizedDescription, failure);
+    removed++;
+  }
+  resolve(@(removed));
+}
+
 // {path, modified (ms), size, downloaded} or null. Starts a download when only the placeholder is here.
 RCT_EXPORT_METHOD(fileInfo:(NSString *)name resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject) {
   NSURL *docs = DocumentsURL();

@@ -11,6 +11,7 @@ import { ThemedText } from '@/components/themed-text';
 import { Spacing } from '@/constants/theme';
 import type { Tree } from '@/domain/types';
 import { useTheme } from '@/hooks/use-theme';
+import { useDemo } from '@/demo/demo';
 import { mutate, useTrees } from '@/state/store';
 import * as repo from '@/storage/repo';
 import { SettingsSections } from './SettingsSections';
@@ -30,6 +31,7 @@ export function TreesScreen() {
   const insets = useSafeAreaInsets();
   const navigation = useNavigation();
   const trees = useTrees();
+  const demo = useDemo();
   const [prompt, setPrompt] = useState<PromptSpec>();
   const mine = trees.filter(t => t.kind === 'user');
   const samples = trees.filter(t => t.kind === 'bundled');
@@ -66,6 +68,11 @@ export function TreesScreen() {
       <ScrollView contentContainerStyle={[styles.content, { paddingTop: insets.top + Spacing.two, paddingBottom: insets.bottom + Spacing.six }]}>
         <View style={styles.titleRow}>
           <ThemedText type="largeTitle">Trees</ThemedText>
+          {demo.on ? (
+            <ThemedText type="caption" style={[styles.demo, { color: theme.accentText, backgroundColor: theme.accent }]}>
+              DEMO DATA
+            </ThemedText>
+          ) : null}
         </View>
 
         {mine.length ? (
@@ -130,4 +137,5 @@ const styles = StyleSheet.create({
   sectionTitle: { paddingHorizontal: Spacing.three, marginBottom: Spacing.two },
   empty: { borderRadius: 12, padding: Spacing.four, alignItems: 'center', gap: Spacing.two },
   center: { textAlign: 'center', marginBottom: Spacing.two },
+  demo: { paddingHorizontal: 8, paddingVertical: 2, borderRadius: 6, overflow: 'hidden' },
 });

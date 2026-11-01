@@ -1,6 +1,6 @@
 import { Share } from 'react-native';
 
-import { cleanupPhotos, exportBackup } from '@/backup/backup';
+import { cleanupPhotos, exportBackup, flushRestorePoint, maybeSaveToICloud } from '@/backup/backup';
 import { confirm } from '@/components/menu';
 import type { PromptSpec } from '@/components/prompt';
 import { showToast } from '@/components/toast';
@@ -39,11 +39,15 @@ export function duplicate(tree: Tree): Tree {
 export function confirmDelete(tree: Tree, count: number, onDeleted?: () => void) {
   confirm(
     `Delete “${tree.title}”?`,
-    `${count} ${count === 1 ? 'person' : 'people'} and their photos will be removed from this phone.`,
+    `${count} ${count === 1 ? 'person' : 'people'}, their photos and their edit history will be removed. Settings → Restore a daily copy can bring the tree back for 7 days.`,
     'Delete',
     () => {
       mutate(() => repo.deleteTree(tree.id));
-      cleanupPhotos().catch(() => {});
+      // Rewrite today's copy and the iCloud Drive backup now, not at the next daily save.
+      flushRestorePoint()
+        .then(() => maybeSaveToICloud(true))
+        .finally(() => cleanupPhotos())
+        .catch(() => {});
       onDeleted?.();
     },
   );

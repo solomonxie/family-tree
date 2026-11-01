@@ -7,6 +7,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import {
   cleanupPhotos,
   flushRestorePoint,
+  importInbox,
   maybeSaveToICloud,
   restoreFromICloudIfFresh,
   scheduleRestorePoint,
@@ -18,13 +19,13 @@ import { Colors } from '@/constants/theme';
 import { useScheme } from '@/hooks/use-theme';
 import { RootNavigator } from '@/navigation/RootNavigator';
 import type { RootStackParamList } from '@/navigation/types';
-import { ensureSamplesLoaded } from '@/samples/load';
-import { getDb } from '@/storage/db';
+import { setAppVersion } from '@/constants/app-info';
+import { setStoreRegion } from '@/constants/store-region';
+import { chooseProfile, openStore } from '@/demo/demo';
 
 function openData(): string | undefined {
   try {
-    getDb();
-    ensureSamplesLoaded();
+    openStore();
     return undefined;
   } catch (e) {
     return String((e as Error)?.message ?? e);
@@ -58,6 +59,9 @@ function Root() {
       if (restored) showToast(`Restored ${restored} ${restored === 1 ? 'tree' : 'trees'} from iCloud Drive`);
       await maybeSaveToICloud();
     };
+    importInbox()
+      .then(n => n && showToast(`Imported ${n} ${n === 1 ? 'tree' : 'trees'}`))
+      .catch(() => {});
     syncCloud().catch(() => {});
     cleanupPhotos().catch(() => {});
     const unsubscribe = subscribe(() => scheduleRestorePoint());
@@ -79,17 +83,28 @@ function Root() {
   );
 }
 
-export default function App() {
-  const [error, setError] = useState(openData);
+// Initial props from the iOS SceneDelegate: Info.plist AppStoreRegion and bundle version.
+export default function App({ store, version, build }: { store?: string; version?: string; build?: string }) {
+  useState(() => {
+    setStoreRegion(store);
+    setAppVersion(version, build);
+  });
+  const [state, setState] = useState<{ error?: string }>();
+  useEffect(() => {
+    chooseProfile()
+      .catch(() => {})
+      .then(() => setState({ error: openData() }));
+  }, []);
+  const error = state?.error;
   return (
     <GestureHandlerRootView style={styles.fill}>
       <SafeAreaProvider>
-        {error ? (
+        {!state ? null : error ? (
           <View style={[styles.fill, styles.center, { backgroundColor: Colors.light.background }]}>
             {/* Plain components: themed ones read settings from the DB that just failed. */}
             <Text style={styles.title}>⚠ Couldn’t open your data.</Text>
             <Text style={styles.msg}>{error}</Text>
-            <Pressable onPress={() => setError(openData())} style={styles.retry}>
+            <Pressable onPress={() => setState({ error: openData() })} style={styles.retry}>
               <Text style={styles.retryText}>Try again</Text>
             </Pressable>
           </View>

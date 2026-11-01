@@ -1,9 +1,8 @@
 import * as FS from '@dr.pogodin/react-native-fs';
 import { errorCodes, isErrorWithCode, keepLocalCopy, pick, types } from '@react-native-documents/picker';
 import { useCallback, useEffect, useState } from 'react';
-import { AppState, Pressable, StyleSheet, Switch, View } from 'react-native';
+import { Alert, AppState, Pressable, StyleSheet, Switch, View } from 'react-native';
 
-import pkg from '../../package.json';
 import {
   exportBackup,
   icloudFile,
@@ -11,12 +10,15 @@ import {
   importTrees,
   listRestorePoints,
   maybeSaveToICloud,
-  readBackup,
   readRestorePoint,
   type ICloudStatus,
+  type PendingImport,
   type RestorePoint,
 } from '@/backup/backup';
-import type { TreeData } from '@/backup/snapshot';
+import { appVersion } from '@/constants/app-info';
+import { removeAllData } from '@/backup/erase';
+import { resetDemo, setDemoMode, useDemo } from '@/demo/demo';
+import { readImportFile } from '@/import/importFile';
 import { Row, Section } from '@/components/list';
 import { confirm, showMenu } from '@/components/menu';
 import { ThemedText } from '@/components/themed-text';
@@ -26,6 +28,7 @@ import { SAMPLES } from '@/samples/sample';
 import { setSetting, useDataVersion, useSetting, useTrees } from '@/state/store';
 import { dbPath } from '@/storage/db';
 import { PHOTO_DIR } from '@/storage/photos';
+import { dataRoot } from '@/storage/profile';
 import { shareFile } from './treeActions';
 
 const APPEARANCES: [Appearance, string][] = [
@@ -44,7 +47,7 @@ async function storageBytes(): Promise<number> {
   let total = 0;
   const db = dbPath();
   for (const f of [db, `${db}-wal`]) if (await FS.exists(f)) total += Number((await FS.stat(f)).size);
-  const photos = `${FS.DocumentDirectoryPath}/${PHOTO_DIR}`;
+  const photos = `${dataRoot()}/${PHOTO_DIR}`;
   if (await FS.exists(photos)) for (const f of await FS.readDir(photos)) total += Number(f.size);
   return total;
 }
@@ -99,16 +102,19 @@ export function SettingsSections() {
     }
   };
 
-  const confirmImport = (trees: TreeData[], title: string) => {
+  const confirmImport = (pending: PendingImport, title: string, verb: 'Restore' | 'Import' = 'Restore') => {
+    const { trees } = pending;
     if (!trees.length) throw new Error('There are no trees in it.');
+    const people = trees.reduce((n, t) => n + t.persons.length, 0);
+    const what = trees.length === 1 ? `“${trees[0].tree.title}” (${people} ${people === 1 ? 'person' : 'people'}) is` : `${trees.length} trees are`;
     confirm(
       title,
-      `${trees.length} ${trees.length === 1 ? 'tree is' : 'trees are'} added next to your current trees. Nothing is replaced.`,
-      'Restore',
+      `${what} added next to your current trees. Nothing is replaced.`,
+      verb,
       () =>
-        run('Restoring…', async () => {
-          const n = await importTrees(trees);
-          showToast(`Restored ${n} ${n === 1 ? 'tree' : 'trees'}`);
+        run(verb === 'Import' ? 'Importing…' : 'Restoring…', async () => {
+          const n = await importTrees(pending);
+          showToast(`${verb === 'Import' ? 'Imported' : 'Restored'} ${n} ${n === 1 ? 'tree' : 'trees'}`);
         }),
       false,
     );
@@ -123,13 +129,13 @@ export function SettingsSections() {
 
   const importFile = () =>
     run('Opening…', async () => {
-      const [file] = await pick({ type: [types.zip] });
-      const [copy] = await keepLocalCopy({
-        files: [{ uri: file.uri, fileName: file.name ?? 'backup.zip' }],
-        destination: 'cachesDirectory',
-      });
+      // .ged has no system file type, so any file is offered and recognised by content.
+      const [file] = await pick({ type: [types.allFiles] });
+      const name = file.name ?? 'import';
+      const [copy] = await keepLocalCopy({ files: [{ uri: file.uri, fileName: name }], destination: 'cachesDirectory' });
       if (copy.status !== 'success') throw new Error(copy.copyError ?? 'Couldn’t read that file.');
-      confirmImport(await readBackup(copy.localUri), `Import ${file.name ?? 'backup'}?`);
+      setBusy('Reading…');
+      confirmImport(await readImportFile(copy.localUri, name), `Import ${name}?`, 'Import');
     });
 
   const chooseRestorePoint = () =>
@@ -147,10 +153,43 @@ export function SettingsSections() {
     if (on) run('Saving to iCloud Drive…', async () => void (await maybeSaveToICloud(true)));
   };
 
+  const removeAll = () => {
+    const erase = (icloud: boolean) =>
+      run('Removing…', async () => {
+        await removeAllData({ icloud });
+        showToast(icloud || !cloudFile ? 'All app data removed' : 'All app data removed · iCloud Drive copy kept, daily backup off');
+      });
+    const local =
+      'Deletes every tree, person and photo, the change history, settings and the daily copies on this iPhone. This can’t be undone.';
+    const elsewhere = 'Files you exported and shared elsewhere aren’t affected.';
+    if (status === 'available' && cloudFile) {
+      Alert.alert(
+        'Remove all app data?',
+        `${local}\n\nThe backup in your iCloud Drive (Files → iCloud Drive → Family Tree) can be deleted too, or kept for you to import or delete later. ${elsewhere}`,
+        [
+          { text: 'Also delete iCloud Drive backup', style: 'destructive', onPress: () => erase(true) },
+          { text: 'Keep iCloud Drive backup', style: 'destructive', onPress: () => erase(false) },
+          { text: 'Cancel', style: 'cancel' },
+        ],
+      );
+      return;
+    }
+    confirm(
+      'Remove all app data?',
+      `${local}\n\nAny backup already in your iCloud Drive (Files → iCloud Drive → Family Tree) stays there for you to delete. ${elsewhere}`,
+      'Remove',
+      () => erase(false),
+    );
+  };
+
   const blocked = status && status !== 'available' && status !== 'unsupported' ? ICLOUD_STATE[status] : undefined;
   const cloudLine = blocked
     ? blocked.line
-    : `Files → iCloud Drive → Family Tree${cloudFile?.modified ? ` · ${when(new Date(cloudFile.modified))}` : ''}`;
+    : icloudOn
+      ? `On · Files → iCloud Drive → Family Tree${cloudFile?.modified ? ` · ${when(new Date(cloudFile.modified))}` : ''}`
+      : cloudFile
+        ? 'Off · the last copy stays in iCloud Drive until you delete it'
+        : 'Off · nothing is saved to iCloud Drive';
 
   return (
     <>
@@ -189,6 +228,7 @@ export function SettingsSections() {
           <Row
             label="Daily iCloud Drive backup"
             detail={cloudLine}
+            detailLines={2}
             right={
               <Switch
                 value={icloudOn && !blocked}
@@ -212,7 +252,12 @@ export function SettingsSections() {
           labelColor={theme.accent}
           onPress={busy ? undefined : exportAll}
         />
-        <Row label="Import from file…" labelColor={theme.accent} onPress={busy ? undefined : importFile} />
+        <Row
+          label="Import from file…"
+          detail="Backup .zip · GEDCOM .ged"
+          labelColor={theme.accent}
+          onPress={busy ? undefined : importFile}
+        />
         <Row
           label="Storage"
           value={`${userTrees} ${userTrees === 1 ? 'tree' : 'trees'}${bytes !== undefined ? ` · ${formatBytes(bytes)}` : ''}`}
@@ -220,9 +265,43 @@ export function SettingsSections() {
         {SAMPLES.map(s => (
           <Row key={s.id} label={`${s.title} source`} value={s.source} />
         ))}
-        <Row label="Version" value={pkg.version} />
+        <Row label="Remove all app data…" destructive onPress={busy ? undefined : removeAll} />
+        <Row label="Version" value={appVersion()} />
       </Section>
+      <DemoSection />
     </>
+  );
+}
+
+function DemoSection() {
+  const theme = useTheme();
+  const { on } = useDemo();
+  const [switching, setSwitching] = useState(false);
+  const toggle = (v: boolean) => {
+    setSwitching(true);
+    setDemoMode(v)
+      .catch(e => showToast(`⚠ ${(e as Error).message}`))
+      .finally(() => setSwitching(false));
+  };
+  const reset = () =>
+    confirm('Reset demo data?', 'Back to the demo family as first installed. Your own trees are not touched.', 'Reset', resetDemo);
+  return (
+    <Section title="Demo">
+      <Row
+        label="Demo data"
+        detail={on ? 'Showing a fictional family, not yours' : 'Show a fictional family instead of yours'}
+        right={
+          <Switch
+            value={on}
+            disabled={switching}
+            onValueChange={toggle}
+            trackColor={{ true: theme.accent }}
+            accessibilityLabel="Demo data"
+          />
+        }
+      />
+      {on ? <Row label="Reset demo data" destructive onPress={reset} /> : null}
+    </Section>
   );
 }
 

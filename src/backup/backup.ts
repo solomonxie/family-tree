@@ -6,9 +6,9 @@ import { mutate } from '@/state/store';
 import { PHOTO_DIR, removeUnusedPhotos } from '@/storage/photos';
 import * as repo from '@/storage/repo';
 import { inTransaction } from '@/storage/db';
+import { dataRoot, isDemo, profile } from '@/storage/profile';
 import { buildSnapshot, parseSnapshot, remapForImport, type TreeData } from './snapshot';
 
-const DOCS = FS.DocumentDirectoryPath;
 const DAY = 24 * 60 * 60 * 1000;
 const KEEP_DAYS = 7;
 
@@ -25,16 +25,18 @@ function userTreeData(treeIds?: string[]): TreeData[] {
     }));
 }
 
+// Everything read from the DB/profile is captured before the first await: a demo switch may follow.
 async function writeZip(trees: TreeData[], target: string): Promise<string> {
+  const root = dataRoot();
+  // The full history travels with every backup; it is never replayed on import (ids are remapped).
+  const log = repo.changeLog().map(e => JSON.stringify(e)).join('\n');
   const staging = `${FS.CachesDirectoryPath}/backup-${Date.now()}`;
   await FS.mkdir(`${staging}/${PHOTO_DIR}`);
   await FS.writeFile(`${staging}/snapshot.json`, JSON.stringify(buildSnapshot(trees)), 'utf8');
-  // The full history travels with every backup; it is never replayed on import (ids are remapped).
-  const log = repo.changeLog().map(e => JSON.stringify(e)).join('\n');
   await FS.writeFile(`${staging}/changes.jsonl`, log ? `${log}\n` : '', 'utf8');
   for (const p of trees.flatMap(t => t.persons)) {
     if (!p.photoPath) continue;
-    const src = `${DOCS}/${p.photoPath}`;
+    const src = `${root}/${p.photoPath}`;
     const dest = `${staging}/${p.photoPath}`;
     if ((await FS.exists(src)) && !(await FS.exists(dest))) await FS.copyFile(src, dest);
   }
@@ -56,30 +58,36 @@ function safeName(title: string) {
   return title.replace(/[^\w\- ]+/g, '').trim().replace(/\s+/g, '-').toLowerCase() || 'tree';
 }
 
-export async function readBackup(zipPath: string): Promise<TreeData[]> {
-  const dir = `${FS.CachesDirectoryPath}/import-${Date.now()}`;
-  await unzip(zipPath.replace(/^file:\/\//, ''), dir);
-  const snapshotPath = `${dir}/snapshot.json`;
-  if (!(await FS.exists(snapshotPath))) throw new Error('Not a Family Tree backup.');
-  const snapshot = parseSnapshot(await FS.readFile(snapshotPath, 'utf8'));
-  pendingImportDir = dir;
-  return snapshot.trees;
+// Trees read from a file, waiting for the user to confirm. `dir`: unzipped source whose photos/ get copied.
+export interface PendingImport {
+  trees: TreeData[];
+  dir?: string;
 }
 
-let pendingImportDir: string | undefined;
+export async function readBackup(zipPath: string): Promise<PendingImport> {
+  const dir = `${FS.CachesDirectoryPath}/import-${Date.now()}`;
+  await unzip(zipPath.replace(/^file:\/\//, ''), dir);
+  const pending = await readBackupDir(dir);
+  if (!pending) throw new Error('Not a Family Tree backup.');
+  return pending;
+}
 
-// Call after readBackup, once the user confirms.
-export async function importTrees(trees: TreeData[]): Promise<number> {
+export async function readBackupDir(dir: string): Promise<PendingImport | undefined> {
+  const snapshotPath = `${dir}/snapshot.json`;
+  if (!(await FS.exists(snapshotPath))) return undefined;
+  return { trees: parseSnapshot(await FS.readFile(snapshotPath, 'utf8')).trees, dir };
+}
+
+export async function importTrees({ trees, dir }: PendingImport): Promise<number> {
   await flushRestorePoint();
   const titles = repo.listTrees().map(t => t.title);
   const remapped = remapForImport({ format: 'family-tree-backup', version: 1, exportedAt: 0, trees }, titles);
-  const dir = pendingImportDir;
   if (dir) {
-    await FS.mkdir(`${DOCS}/${PHOTO_DIR}`);
+    await FS.mkdir(`${dataRoot()}/${PHOTO_DIR}`);
     for (const p of remapped.flatMap(t => t.persons)) {
       if (!p.photoPath) continue;
       const src = `${dir}/${p.photoPath}`;
-      const dest = `${DOCS}/${p.photoPath}`;
+      const dest = `${dataRoot()}/${p.photoPath}`;
       if ((await FS.exists(src)) && !(await FS.exists(dest))) await FS.copyFile(src, dest);
     }
   }
@@ -93,15 +101,27 @@ export async function importTrees(trees: TreeData[]): Promise<number> {
     }),
   );
   if (dir) await FS.unlink(dir).catch(() => {});
-  pendingImportDir = undefined;
   return remapped.length;
 }
 
+// Snapshot .json files copied into Documents/import-inbox from a Mac (devicectl) are added once, then removed.
+export async function importInbox(): Promise<number> {
+  const inbox = `${FS.DocumentDirectoryPath}/import-inbox`;
+  if (isDemo() || !(await FS.exists(inbox))) return 0;
+  let n = 0;
+  for (const f of await FS.readDir(inbox)) {
+    if (!f.name.endsWith('.json')) continue;
+    n += await importTrees({ trees: parseSnapshot(await FS.readFile(f.path, 'utf8')).trees });
+    await FS.unlink(f.path);
+  }
+  return n;
+}
+
 // Daily copies: one snapshot file per day, overwritten on every change that day, last 7 days.
-// What changed between them is in the append-only change log. Photos aren't copied —
+// What changed between them is in the change log. Photos aren't copied —
 // they're content-addressed and kept while any daily copy names them.
-export const RESTORE_DIR = `${DOCS}/daily`;
-const LEGACY_DIR = `${DOCS}/restore-points`;
+const restoreDir = () => `${dataRoot()}/daily`;
+const legacyDir = () => `${dataRoot()}/restore-points`;
 
 const pad = (n: number, w = 2) => String(n).padStart(w, '0');
 const localDay = (d = new Date()) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
@@ -109,16 +129,20 @@ const localDay = (d = new Date()) => `${d.getFullYear()}-${pad(d.getMonth() + 1)
 export async function writeRestorePoint() {
   const changeId = repo.lastChangeId();
   if (changeId <= Number(repo.getSetting('restore.changeId') ?? 0)) return;
-  await FS.mkdir(RESTORE_DIR);
-  await FS.writeFile(`${RESTORE_DIR}/${localDay()}.json`, JSON.stringify(buildSnapshot(userTreeData())), 'utf8');
+  const dir = restoreDir();
+  const was = profile();
+  const json = JSON.stringify(buildSnapshot(userTreeData()));
+  await FS.mkdir(dir);
+  await FS.writeFile(`${dir}/${localDay()}.json`, json, 'utf8');
+  if (profile() !== was) return;
   repo.setSetting('restore.changeId', String(changeId));
   await pruneRestorePoints();
 }
 
 async function pruneRestorePoints() {
-  if (await FS.exists(LEGACY_DIR)) await FS.unlink(LEGACY_DIR);
+  if (await FS.exists(legacyDir())) await FS.unlink(legacyDir());
   const oldest = localDay(new Date(Date.now() - (KEEP_DAYS - 1) * DAY));
-  for (const f of await FS.readDir(RESTORE_DIR)) {
+  for (const f of await FS.readDir(restoreDir())) {
     if (f.name.slice(0, 10) < oldest) await FS.unlink(f.path);
   }
 }
@@ -134,6 +158,11 @@ export function scheduleRestorePoint(delayMs = 3000) {
   }, delayMs);
 }
 
+export function cancelRestorePoint() {
+  if (pointTimer) clearTimeout(pointTimer);
+  pointTimer = undefined;
+}
+
 export async function flushRestorePoint() {
   if (pointTimer) clearTimeout(pointTimer);
   pointTimer = undefined;
@@ -147,16 +176,15 @@ export interface RestorePoint {
 }
 
 export async function listRestorePoints(): Promise<RestorePoint[]> {
-  if (!(await FS.exists(RESTORE_DIR))) return [];
-  return (await FS.readDir(RESTORE_DIR))
+  if (!(await FS.exists(restoreDir()))) return [];
+  return (await FS.readDir(restoreDir()))
     .filter(f => /^\d{4}-\d{2}-\d{2}\.json$/.test(f.name))
     .map(f => ({ path: f.path, day: f.name.slice(0, 10), date: f.mtime ?? new Date(0) }))
     .sort((a, b) => b.day.localeCompare(a.day));
 }
 
-export async function readRestorePoint(path: string): Promise<TreeData[]> {
-  pendingImportDir = undefined;
-  return parseSnapshot(await FS.readFile(path, 'utf8')).trees;
+export async function readRestorePoint(path: string): Promise<PendingImport> {
+  return { trees: parseSnapshot(await FS.readFile(path, 'utf8')).trees };
 }
 
 async function photosInRestorePoints(): Promise<string[]> {
@@ -181,11 +209,13 @@ const ICloud = NativeModules.ICloudDrive as
       status(): Promise<Exclude<ICloudStatus, 'unsupported'>>;
       save(source: string, name: string): Promise<string>;
       fileInfo(name: string): Promise<{ path: string; modified: number; size: number; downloaded: boolean } | null>;
+      removeAll(): Promise<number>;
     }
   | undefined;
 
+// Demo data never reaches iCloud Drive.
 export async function icloudStatus(): Promise<ICloudStatus> {
-  if (!ICloud) return 'unsupported';
+  if (!ICloud || isDemo()) return 'unsupported';
   try {
     return await ICloud.status();
   } catch {
@@ -196,11 +226,11 @@ export async function icloudStatus(): Promise<ICloudStatus> {
 export const icloudEnabled = () => repo.getSetting('backup.icloud') !== '0';
 
 export async function icloudFile() {
-  return ICloud ? ICloud.fileInfo(ICLOUD_FILE) : null;
+  return ICloud && !isDemo() ? ICloud.fileInfo(ICLOUD_FILE) : null;
 }
 
 export async function maybeSaveToICloud(force = false): Promise<boolean> {
-  if (!ICloud || !icloudEnabled() || repo.getSetting('restore.checked') !== '1') return false;
+  if (!ICloud || isDemo() || !icloudEnabled() || repo.getSetting('restore.checked') !== '1') return false;
   const changeId = repo.lastChangeId();
   const today = localDay();
   const due =
@@ -211,22 +241,30 @@ export async function maybeSaveToICloud(force = false): Promise<boolean> {
   const trees = userTreeData();
   // Never let an empty phone overwrite a good copy in the cloud.
   if (!trees.length) return false;
-  if ((await icloudStatus()) !== 'available') return false;
+  if ((await icloudStatus()) !== 'available' || isDemo()) return false;
   const zipPath = await writeZip(trees, `${FS.CachesDirectoryPath}/icloud-${Date.now()}.zip`);
   try {
     await ICloud.save(zipPath, ICLOUD_FILE);
   } finally {
     await FS.unlink(zipPath).catch(() => {});
   }
+  if (isDemo()) return true;
   repo.setSetting('backup.icloud.day', today);
   repo.setSetting('backup.icloud.changeId', String(changeId));
   repo.setSetting('backup.icloud.savedAt', String(Date.now()));
   return true;
 }
 
+// Deletes everything in the app's own iCloud Drive folder (Files → iCloud Drive → Family Tree).
+export async function removeICloudBackup() {
+  if (!ICloud) return;
+  if ((await ICloud.status()) !== 'available') throw new Error('iCloud Drive isn’t available right now, so nothing was removed.');
+  await ICloud.removeAll();
+}
+
 // Fresh install: pull the iCloud copy back once, silently. Retries until iCloud has answered.
 export async function restoreFromICloudIfFresh(): Promise<number> {
-  if (repo.getSetting('restore.checked') === '1') return 0;
+  if (isDemo() || repo.getSetting('restore.checked') === '1') return 0;
   const done = () => repo.setSetting('restore.checked', '1');
   if (userTreeData().length || !ICloud) {
     done();
@@ -244,8 +282,9 @@ export async function restoreFromICloudIfFresh(): Promise<number> {
     return 0;
   }
   if (!info.downloaded) return 0;
-  const trees = await readBackup(info.path);
-  const n = trees.length ? await importTrees(trees) : 0;
+  const pending = await readBackup(info.path);
+  if (isDemo()) return 0;
+  const n = pending.trees.length ? await importTrees(pending) : 0;
   done();
   return n;
 }
