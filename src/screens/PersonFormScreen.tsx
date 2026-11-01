@@ -27,6 +27,8 @@ export function PersonFormScreen({ route, navigation }: ScreenProps<'PersonForm'
   const [name, setName] = useState(editing?.name ?? '');
   const [born, setBorn] = useState(yearInputValue(editing?.birthYear, editing?.datesApprox));
   const [died, setDied] = useState(yearInputValue(editing?.deathYear, editing?.datesApprox));
+  const [birthPlace, setBirthPlace] = useState(editing?.birthPlace ?? '');
+  const [deathPlace, setDeathPlace] = useState(editing?.deathPlace ?? '');
   const [sex, setSex] = useState<Sex | undefined>(editing?.sex);
   const [origin, setOrigin] = useState(editing?.originRegion ?? (relation === 'child' ? of?.originRegion ?? '' : ''));
   const [notes, setNotes] = useState(editing?.notes ?? '');
@@ -88,6 +90,12 @@ export function PersonFormScreen({ route, navigation }: ScreenProps<'PersonForm'
       birthYear: b.year,
       deathYear: d.year,
       datesApprox: b.approx || d.approx || undefined,
+      // Full dates (from imports) survive while their year is unchanged.
+      birthDate: keepDate(editing?.birthDate, b.year),
+      deathDate: keepDate(editing?.deathDate, d.year),
+      birthPlace: birthPlace.trim() || undefined,
+      deathPlace: deathPlace.trim() || undefined,
+      deceased: d.year === undefined ? editing?.deceased : undefined,
       originRegion: origin.trim() || undefined,
       notes: notes.trim() || undefined,
       photoPath,
@@ -193,17 +201,41 @@ export function PersonFormScreen({ route, navigation }: ScreenProps<'PersonForm'
           </Field>
           {errorText(errors.born)}
           {divider}
+          <Field label="Born in">
+            <TextInput
+              value={birthPlace}
+              onChangeText={setBirthPlace}
+              placeholder="Town, region, country"
+              placeholderTextColor={theme.textSecondary}
+              style={inputStyle}
+            />
+          </Field>
+          {divider}
           <Field label="Died">
             <TextInput
               value={died}
               onChangeText={setDied}
-              placeholder="Living or unknown"
+              placeholder={editing?.deceased ? 'Year unknown' : 'Living or unknown'}
               placeholderTextColor={theme.textSecondary}
               keyboardType="numbers-and-punctuation"
               style={inputStyle}
             />
           </Field>
           {errorText(errors.died)}
+          {d.year !== undefined || deathPlace || editing?.deceased ? (
+            <>
+              {divider}
+              <Field label="Died in">
+                <TextInput
+                  value={deathPlace}
+                  onChangeText={setDeathPlace}
+                  placeholder="Town, region, country"
+                  placeholderTextColor={theme.textSecondary}
+                  style={inputStyle}
+                />
+              </Field>
+            </>
+          ) : null}
           {divider}
           <Field label="Sex">
             <View style={[styles.segment, { backgroundColor: theme.backgroundSelected }]}>
@@ -291,6 +323,9 @@ export function PersonFormScreen({ route, navigation }: ScreenProps<'PersonForm'
     </KeyboardAvoidingView>
   );
 }
+
+const keepDate = (iso: string | undefined, year: number | undefined) =>
+  iso && year !== undefined && parseInt(iso, 10) === year ? iso : undefined;
 
 function Field({ label, children, top }: { label: string; children: React.ReactNode; top?: boolean }) {
   return (

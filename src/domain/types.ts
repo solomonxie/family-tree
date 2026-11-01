@@ -24,6 +24,13 @@ export interface Person {
   birthYear?: number;
   deathYear?: number;
   datesApprox?: boolean;
+  // ISO "YYYY-MM-DD" or "YYYY-MM"; only set when more precise than the year.
+  birthDate?: string;
+  deathDate?: string;
+  birthPlace?: string;
+  deathPlace?: string;
+  // Died, date unknown.
+  deceased?: boolean;
   originRegion?: string;
   notes?: string;
   photoPath?: string;

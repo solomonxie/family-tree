@@ -8,7 +8,7 @@ import { confirm } from '@/components/menu';
 import { ThemedText } from '@/components/themed-text';
 import { showToast } from '@/components/toast';
 import { Spacing } from '@/constants/theme';
-import { formatYear, isLiving, lifespan, lifespanLong } from '@/domain/format';
+import { formatEventDate, isLiving, lifespan, lifespanLong } from '@/domain/format';
 import { childrenOf, parentsOf, spousesOf } from '@/domain/rules';
 import type { Person } from '@/domain/types';
 import { useTheme } from '@/hooks/use-theme';
@@ -104,10 +104,18 @@ export function PersonDetailScreen({ route, navigation }: ScreenProps<'PersonDet
       </View>
 
       <Section>
-        <Row label="Born" value={person.birthYear !== undefined ? formatYear(person.birthYear, person.datesApprox) : '—'} />
+        <Row
+          label="Born"
+          detail={person.birthPlace}
+          value={formatEventDate(person.birthDate, person.birthYear, person.datesApprox) ?? '—'}
+        />
         <Row
           label="Died"
-          value={person.deathYear !== undefined ? formatYear(person.deathYear, person.datesApprox) : living ? 'Living' : '—'}
+          detail={person.deathPlace}
+          value={
+            formatEventDate(person.deathDate, person.deathYear) ??
+            (living ? 'Living' : person.deceased ? 'Date unknown' : '—')
+          }
         />
         <Row label="Origin" value={person.originRegion ?? '—'} />
         {person.sex ? <Row label="Sex" value={person.sex === 'f' ? 'Female' : 'Male'} /> : null}

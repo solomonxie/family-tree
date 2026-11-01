@@ -21,7 +21,7 @@ export function FindScreen({ route, navigation }: ScreenProps<'Find'>) {
     if (!needle) return [];
     const scored = persons.flatMap(p => {
       const name = p.name.toLowerCase();
-      const origin = p.originRegion?.toLowerCase() ?? '';
+      const origin = [p.originRegion, p.birthPlace, p.deathPlace].filter(Boolean).join(' ').toLowerCase();
       const words = name.split(/\s+/);
       const score = name.startsWith(needle)
         ? 0

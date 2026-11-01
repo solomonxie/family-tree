@@ -40,6 +40,7 @@ export interface RowProps {
   onPress?: () => void;
   onLongPress?: () => void;
   numberOfLines?: number;
+  detailLines?: number;
   accessibilityLabel?: string;
 }
 
@@ -55,7 +56,7 @@ export function Row(p: RowProps) {
           {p.label}
         </ThemedText>
         {p.detail ? (
-          <ThemedText type="caption" themeColor="textSecondary" numberOfLines={1}>
+          <ThemedText type="caption" themeColor="textSecondary" numberOfLines={p.detailLines ?? 1}>
             {p.detail}
           </ThemedText>
         ) : null}
