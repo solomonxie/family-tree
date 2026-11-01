@@ -1,5 +1,6 @@
 #!/bin/sh
 # Release build (JS bundled, no Metro needed) installed and launched on a connected iPhone.
+# STORE=us|cn (default us: Canada/US) → Info.plist AppStoreRegion.
 set -eu
 cd "$(dirname "$0")/.."
 
@@ -21,7 +22,7 @@ DEVICE=${DEVICE_ID:-$(xcrun devicectl list devices --json-output /dev/stdout 2>/
 build() {
   xcodebuild -workspace ios/FamilyTree.xcworkspace -scheme FamilyTree -configuration Release \
     -destination "id=$DEVICE" -xcconfig ios/Local.xcconfig -allowProvisioningUpdates \
-    -derivedDataPath /tmp/familytree-build "$@" build > /tmp/family-tree-build.log 2>&1
+    -derivedDataPath /tmp/familytree-build APP_STORE_REGION="${STORE:-us}" "$@" build > /tmp/family-tree-build.log 2>&1
 }
 
 # iCloud needs a profile with the iCloud capability (Xcode → Settings → Accounts signed in).
